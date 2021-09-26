@@ -1,0 +1,321 @@
+<apex:page standardController="Lead__c" extensions="WebToLead" sidebar="false" showHeader="false" lightningStylesheets="true">
+    <!--Stylesheets-->
+    <apex:slds /> 
+    
+    <style>
+    
+        .hideDiv{display: none;}
+        
+    </style>
+    
+    <!-- Lightning Design System Source -->
+    <apex:stylesheet value="{!URLFOR($Resource.LightningDesignSystem, 'styles/salesforce-lightning-design-system.css')}" />
+    
+    <!-- jQuery CDN -->
+    <apex:includeScript value="https://code.jquery.com/jquery-1.11.1.min.js"/>
+    
+    <!-- Important To Include ALJS init File-->
+    <script src="{!URLFOR($Resource.LightningDesignSystemALJS, 'appiphony-lightning-js-master/public/src/jquery.aljs-init.js')}"/>
+    
+    <!-- ALJS Lookup -->
+    <script src="{!URLFOR($Resource.LightningDesignSystemALJS, 'appiphony-lightning-js-master/public/src/jquery.aljs-lookup.js')}"/>
+
+        
+        
+    <script>
+    
+        
+    
+    /* Lookup University  */
+    var j$ = jQuery.noConflict();
+    
+    function getExistingUniversities() {
+        WebToLead.getExistingUniversities(
+            function( result, event ) {
+                var universities = result;
+                j$( "#txtUniversity" ).lookup(
+                    {
+                        items : universities,
+                        showSearch : true,
+                        recentLabel : ''
+                    }
+                );
+            }
+        );
+    }
+    
+    
+    j$( document ).ready(function () {
+        //removed 08/11
+        //getExistingUniversities();
+    });
+        
+    function submitleadForm(){
+        
+        var formValidatted = true;
+        /* First Name Validation*/
+        var firstName = document.getElementById('txtFirstName').value;
+        if (firstName == "") {
+            document.getElementById('form_First_Name').innerHTML="First Name is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_First_Name').innerHTML="";
+        }
+        
+        /* Last Name Validation*/
+        var lastName = document.getElementById('txtLastName').value;
+        if (lastName == "") {
+            document.getElementById('form_Last_name').innerHTML="Last Name is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Last_name').innerHTML="";
+        }
+        
+        /* Email Validation*/
+        var email = document.getElementById('txtEmail').value;
+        var atpos = email.indexOf("@");
+        var dotpos = email.lastIndexOf(".");
+        if (email == "" || atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
+            document.getElementById('form_Email').innerHTML="Email is Required / Not a valid e-mail address";
+            formValidatted = false;
+        }
+        else{
+            document.getElementById('form_Email').innerHTML="";
+        }
+        //debugger;
+        /* Mobile Number Validation*/
+        var mobile = document.getElementById('txtMobile').value;
+        var phoneno = /^\d{10}$/;
+        if (mobile == "") {
+            document.getElementById('form_Mobile').innerHTML="Mobile Number is Required";
+            formValidatted = false;
+        }
+        else if(!mobile.match(phoneno))
+        {
+            document.getElementById('form_Mobile').innerHTML="Mobile Number should have 10 digits";
+            formValidatted = false;
+        }
+            else
+            {
+                document.getElementById('form_Mobile').innerHTML="";
+                
+            }
+        
+        /* Lead Source Validation*/
+        var source = document.getElementById('txtLeadSource').value;
+        if (source == "None") {
+            document.getElementById('form_Source').innerHTML="How did you Hear About us ?is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Source').innerHTML="";
+        }
+        /* Preferred Country Validation 
+        form_preferred_country*/
+        
+        var pcountries = j$('#txtPrefCountries').val();
+        console.log('pcountries :: '+pcountries);
+        if (pcountries == null){
+            document.getElementById('form_preferred_country').innerHTML="Preferred Country is Required";
+            formValidatted = false;
+        }
+            
+        
+        var university = null;
+        /* removed 08/11
+        if(j$( "#txtUniversity").lookup('getSelection') != null){
+            university = j$( "#txtUniversity").lookup('getSelection').id;
+        }
+        */
+        
+        var leadSource = document.getElementById('txtLeadSource').value;
+        
+        //var leadSource2 = document.getElementById('txtLeadSource2').value;
+        var message = document.getElementById('textMessage').value;
+        //var leadtype = document.getElementById('outputLeadType').value;
+        var leadtype='';
+        
+         
+        
+        if (formValidatted == true)  {
+            saveForm(firstName,lastName,email,mobile,message,university,leadSource,leadtype,pcountries);
+        } 
+        else {
+            return false;
+        }
+    }
+    
+    function saveForm(firstName,lastName,email,mobile,message,university,leadSource,leadtype,pcountries) {
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.WebToLead.saveFormLd}',
+            firstName,lastName,email,mobile,message,university,leadSource,leadtype,pcountries,
+            function(result,event) {
+                if( event.status ) {
+                    toastLaunch();
+                    //location.href = "https://campusdirect--dev--c.cs31.visual.force.com/apex/WebToLeadForm"
+                    window.location.reload();
+                }
+                else {
+                    alert( "Failed!");
+                    //location.href = "https://campusdirect--dev--c.cs31.visual.force.com/apex/WebToLeadForm"
+                    window.location.reload();
+                }
+            },
+            {escape: true}
+        ); 
+    }
+    
+    /* Success Message */   
+    function toastLaunch(){
+        document.getElementById("ToastMessage").style.display='block';
+        mode: 'dismissible';
+        duration:' 20000';
+    }
+    </script>
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <head>
+        </head>
+        <body class="container" >
+            <apex:form id="LeadForm">
+                <div style="width:100%" overflow="auto">
+                    <div class="slds-grid" id="divBodyMainUpper">
+                        <div class="slds-col slds-size_2-of-12"></div>
+                        <div class="slds-size_8-of-12">
+                          
+                            <!-- Toast Message-->
+                            <!-- Success Toast Message -->
+                            <div class="demo-only" style="height: 4rem;display: none" id='ToastMessage'>
+                                <div class="slds-notify_container slds-is-relative">
+                                    <div class="slds-notify slds-notify_toast slds-theme_success" role="alert">
+                                        <span class="slds-assistive-text">success</span>
+                                        <span class="slds-icon_container slds-icon-utility-success slds-m-right_small slds-no-flex slds-align-top" title="Description of icon when needed">
+                                            <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#success')}" />
+                                            </svg>
+                                        </span>
+                                        <div class="slds-notify__content">
+                                            <h2 class="slds-text-heading_small "><a href="javascript:void(0);"></a>Thank you for Submitting the Form</h2>
+                                        </div>
+                                        <button class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close" onclick='toastLaunch()'>
+                                            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#close')}" />
+                                            </svg>
+                                            <span class="slds-assistive-text">Close</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Success Toast Message -->
+                        
+                            <div class="slds-card slds-p-around_medium slds-m-bottom_large">
+                                <div class="slds-col slds-p-horizontal_medium">
+                                    <div class="slds-form slds-form_stacked">
+                                        <div class="slds-form-element sld-m-top_medium">
+                                            <label class="slds-form-element__label" for="txtFirstName">First Name *</label>
+                                            <div id='form_First_Name' class='error_strings' style="color:red;" ></div>
+                                            <div class="slds-form-element__control">
+                                                <input type="text" id="txtFirstName" class="slds-input" placeholder="First Name" />
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element sld-m-top_medium">
+                                            <label class="slds-form-element__label" for="txtLastName">Last Name *</label>
+                                            <div id='form_Last_name' class='error_strings' style="color:red;" ></div>
+                                            <div class="slds-form-element__control">
+                                                <input type="text" id="txtLastName" class="slds-input" placeholder="Last Name" />
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element sld-m-top_medium">
+                                            <label class="slds-form-element__label" for="txtEmail">Email *</label>
+                                            <div id='form_Email' class='error_strings' style="color:red;" ></div>
+                                            <div class="slds-form-element__control">
+                                                <input type="text" id="txtEmail" class="slds-input" placeholder="Email" />
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element sld-m-top_medium">
+                                            <label class="slds-form-element__label" for="txtMobile">Mobile *</label>
+                                            <div id='form_Mobile' class='error_strings' style="color:red;" ></div>
+                                            <div class="slds-form-element__control">
+                                                <input type="text" id="txtMobile" class="slds-input" placeholder="Mobile" />
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element sld-m-top_medium">
+                                            <label class="slds-form-element__label" for="txtLeadSource">How did you Hear About us ? *</label>
+                                            <div id='form_Source' class='error_strings' style="color:red;" ></div>    
+                                            <div class="slds-form-element__control">
+                                                    <div class="slds-select_container">
+                                                        <select class="slds-select" id="txtLeadSource" mutiselect="true">
+                                                            <option value="None">None</option>
+                                                            <apex:repeat value="{!leadSourceList}" var="leadSource">
+                                                                <option value="{!leadSource}">{!leadSource}</option>
+                                                            </apex:repeat>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                        <div class="slds-form-element sld-m-top_medium">
+                                            <label class="slds-form-element__label" for="txtPrefCountries">Preferred Country *</label>
+                                            <div id='form_preferred_country' class='error_strings' style="color:red;" ></div>  
+                                            <div class="slds-form-element__control">
+                                                    <div class="slds-select_container">
+                                                        <select class="slds-select" id="txtPrefCountries" multiple="true">                                                            
+                                                            <apex:repeat value="{!prefCountryList}" var="prefCountry">
+                                                                <option value="{!prefCountry}">{!prefCountry}</option>
+                                                            </apex:repeat>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                        
+                                        <!--                                        
+                                        <div class="slds-form-element slds-lookup" data-select="single" data-scope="single">
+                                            <label class="slds-form-element__label" for="txtUniversity">Preferred University</label>
+                                            <div id='form_Preferred_University' class="slds-text-color_error"></div>
+                                            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+                                                <svg aria-hidden="false" class="slds-input__icon slds-icon-text-default">
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/utility-sprite/svg/symbols.svg#search')}"></use>
+                                                </svg>
+                                                <input id="txtUniversity" class="slds-lookup__search-input slds-input" type="text" aria-autocomplete="list" role="combobox" aria-expanded="false" aria-activedescendant="" placeholder="Preferred University"/>
+                                            </div>
+                                        </div>
+										-->
+                                        
+                                        <!--
+                                        <div class="slds-form-element sld-m-top_medium" style="{!IF(LeadType== '', '', '')} ">
+                                            <label class="slds-form-element__label" for="outputLeadType">Lead Type</label>
+                                            <div class="slds-form-element__control">
+                                                
+                                                <input type="text" id="outputLeadType" value="{!LeadType}" class="slds-input" onfocus="this.blur()" />
+                                                
+
+                                            </div>
+                                        </div>
+                                        -->
+                                     <!--   <div class="slds-form-element sld-m-top_medium">
+                                            <label class="slds-form-element__label" for="txtSubject">Subject</label>
+                                            <div class="slds-form-element__control">
+                                                <input type="text" id="txtSubject" class="slds-input" placeholder="Subject" />
+                                            </div>
+                                        </div> -->
+                                        <div class="slds-form-element sld-m-top_medium">
+                                            <label class="slds-form-element__label" for="textMessage">Message</label>
+                                            <div id='form_Interested_Study' class='error_strings' style="color:red;" ></div>
+                                            <div class="slds-form-element__control">
+                                                <textarea id="textMessage" class="slds-textarea" placeholder="Message"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-grid_align-centre slds-p-bottom_small slds-p-top_small" style="text-align:Center; ">
+                                    <button type="button" class="slds-button slds-align_center slds-button_brand" value="Submit"  onclick="submitleadForm()"> Submit</button>
+                                    <!-- <button type="button" class="slds-button slds-align_center slds-button_brand" value="Reset" >Reset</button>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_2-of-12"></div>
+                    </div>
+                </div>
+            </apex:form>
+        </body> 
+    </html>
+</apex:page>

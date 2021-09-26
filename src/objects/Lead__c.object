@@ -1,0 +1,2120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Leadc_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Address_Line_1_2__c</fullName>
+        <description>Correspondence Address</description>
+        <externalId>false</externalId>
+        <label>Correspondence Address Line 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_Line_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Permanent Address Line 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_Line_2_2__c</fullName>
+        <description>Correspondence Address</description>
+        <externalId>false</externalId>
+        <label>Correspondence Address Line 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_Line_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Permanent Address Line 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Email_Triggered__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>this field will be checked when an email alert is sent by a campaign. So default WF rule email alert won&apos;t be sent</description>
+        <externalId>false</externalId>
+        <label>Campaign Email Triggered?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Name__c</fullName>
+        <description>This field will be used in email templates.</description>
+        <externalId>false</externalId>
+        <formula>Campaign__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The Name of the current campaign the Lead belongs to</inlineHelpText>
+        <label>Campaign Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign_Name_text__c</fullName>
+        <externalId>false</externalId>
+        <formula>Campaign__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Name Text</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>City_2__c</fullName>
+        <description>correspondence Address</description>
+        <externalId>false</externalId>
+        <label>City (Correspondence)</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <externalId>false</externalId>
+        <label>Current City</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>City_p__c</fullName>
+        <externalId>false</externalId>
+        <label>City (Permanent)</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Controller_email_triggered_for__c</fullName>
+        <description>This field is used to identify from where the controller email is triggered</description>
+        <externalId>false</externalId>
+        <label>Controller email triggered for</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Web</fullName>
+                    <default>false</default>
+                    <label>Web</label>
+                </value>
+                <value>
+                    <fullName>Facebook</fullName>
+                    <default>false</default>
+                    <label>Facebook</label>
+                </value>
+                <value>
+                    <fullName>Instagram</fullName>
+                    <default>false</default>
+                    <label>Instagram</label>
+                </value>
+                <value>
+                    <fullName>Whatsapp</fullName>
+                    <default>false</default>
+                    <label>Whatsapp</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Copy_address_from_permanent_Address__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Copy address from permanent Address</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Country_2__c</fullName>
+        <description>correspondence Address</description>
+        <externalId>false</externalId>
+        <label>Country (Correspondence)</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_Interested_In__c</fullName>
+        <externalId>false</externalId>
+        <label>Country Interested In</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Australia</fullName>
+                    <default>false</default>
+                    <label>Australia</label>
+                </value>
+                <value>
+                    <fullName>UK</fullName>
+                    <default>false</default>
+                    <label>UK</label>
+                </value>
+                <value>
+                    <fullName>USA</fullName>
+                    <default>false</default>
+                    <label>USA</label>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                    <label>Canada</label>
+                </value>
+                <value>
+                    <fullName>New Zealand</fullName>
+                    <default>false</default>
+                    <label>New Zealand</label>
+                </value>
+                <value>
+                    <fullName>Switzerland</fullName>
+                    <default>false</default>
+                    <label>Switzerland</label>
+                </value>
+                <value>
+                    <fullName>Malaysia</fullName>
+                    <default>false</default>
+                    <label>Malaysia</label>
+                </value>
+                <value>
+                    <fullName>Singapore</fullName>
+                    <default>false</default>
+                    <label>Singapore</label>
+                </value>
+                <value>
+                    <fullName>Ireland</fullName>
+                    <default>false</default>
+                    <label>Ireland</label>
+                </value>
+                <value>
+                    <fullName>Grenada</fullName>
+                    <default>false</default>
+                    <label>Grenada</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Germany</fullName>
+                    <default>false</default>
+                    <label>Germany</label>
+                </value>
+                <value>
+                    <fullName>Belarus - Medicine only</fullName>
+                    <default>false</default>
+                    <label>Belarus - Medicine only</label>
+                </value>
+                <value>
+                    <fullName>Russia - Medicine only</fullName>
+                    <default>false</default>
+                    <label>Russia - Medicine only</label>
+                </value>
+                <value>
+                    <fullName>Latvia</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Latvia</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Country_p__c</fullName>
+        <description>Country for Permanent Address</description>
+        <externalId>false</externalId>
+        <label>Country (Permanent)</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Qualification__c</fullName>
+        <externalId>false</externalId>
+        <label>Current Qualification</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Postgraduate</fullName>
+                    <default>false</default>
+                    <label>Postgraduate</label>
+                </value>
+                <value>
+                    <fullName>Undergraduate</fullName>
+                    <default>false</default>
+                    <label>Undergraduate</label>
+                </value>
+                <value>
+                    <fullName>HND</fullName>
+                    <default>false</default>
+                    <label>HND</label>
+                </value>
+                <value>
+                    <fullName>Diploma</fullName>
+                    <default>false</default>
+                    <label>Diploma</label>
+                </value>
+                <value>
+                    <fullName>Certificates</fullName>
+                    <default>false</default>
+                    <label>Certificates</label>
+                </value>
+                <value>
+                    <fullName>Foundation Course</fullName>
+                    <default>false</default>
+                    <label>Foundation Course</label>
+                </value>
+                <value>
+                    <fullName>A/L</fullName>
+                    <default>false</default>
+                    <label>A/L</label>
+                </value>
+                <value>
+                    <fullName>O/L</fullName>
+                    <default>false</default>
+                    <label>O/L</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DOB__c</fullName>
+        <externalId>false</externalId>
+        <label>DOB</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Email__c</fullName>
+        <externalId>true</externalId>
+        <label>Email</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expected_Year_to_Begin__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Year &amp; Month</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Facebook_Lead_ID__c</fullName>
+        <externalId>true</externalId>
+        <label>Facebook Lead ID</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>First Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gender__c</fullName>
+        <externalId>false</externalId>
+        <label>Gender</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Male</fullName>
+                    <default>false</default>
+                    <label>Male</label>
+                </value>
+                <value>
+                    <fullName>Female</fullName>
+                    <default>false</default>
+                    <label>Female</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Home_Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Home Phone Number</label>
+        <length>12</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Interested_Field_of_Study__c</fullName>
+        <externalId>false</externalId>
+        <label>Interested Field of Study</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Last_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Initiated_Sources__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Initiated Sources</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Source__c</fullName>
+        <externalId>false</externalId>
+        <label>How did you Hear About us ?</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Facebook</fullName>
+                    <default>false</default>
+                    <label>Facebook</label>
+                </value>
+                <value>
+                    <fullName>Call</fullName>
+                    <default>false</default>
+                    <label>Call</label>
+                </value>
+                <value>
+                    <fullName>Website</fullName>
+                    <default>false</default>
+                    <label>Website</label>
+                </value>
+                <value>
+                    <fullName>Paper Advertisement</fullName>
+                    <default>false</default>
+                    <label>Paper Advertisement</label>
+                </value>
+                <value>
+                    <fullName>Topjobs Advertisement</fullName>
+                    <default>false</default>
+                    <label>Topjobs Advertisement</label>
+                </value>
+                <value>
+                    <fullName>Friend</fullName>
+                    <default>false</default>
+                    <label>Friend</label>
+                </value>
+                <value>
+                    <fullName>Television Advertisement</fullName>
+                    <default>false</default>
+                    <label>Television Advertisement</label>
+                </value>
+                <value>
+                    <fullName>Radio Advertisement</fullName>
+                    <default>false</default>
+                    <label>Radio Advertisement</label>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                    <label>Email</label>
+                </value>
+                <value>
+                    <fullName>Text Message</fullName>
+                    <default>false</default>
+                    <label>Text Message</label>
+                </value>
+                <value>
+                    <fullName>Instagram</fullName>
+                    <default>false</default>
+                    <label>Instagram</label>
+                </value>
+                <value>
+                    <fullName>Leaflet</fullName>
+                    <default>false</default>
+                    <label>Leaflet</label>
+                </value>
+                <value>
+                    <fullName>Google Ads</fullName>
+                    <default>false</default>
+                    <label>Google Ads</label>
+                </value>
+                <value>
+                    <fullName>YouTube</fullName>
+                    <default>false</default>
+                    <label>YouTube</label>
+                </value>
+                <value>
+                    <fullName>Exhibition</fullName>
+                    <default>false</default>
+                    <label>Exhibition</label>
+                </value>
+                <value>
+                    <fullName>Other Event</fullName>
+                    <default>false</default>
+                    <label>Other Event</label>
+                </value>
+                <value>
+                    <fullName>Visit</fullName>
+                    <default>false</default>
+                    <label>Visit</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Lead_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Undecided</fullName>
+                    <default>false</default>
+                    <label>Undecided</label>
+                </value>
+                <value>
+                    <fullName>Not Reachable</fullName>
+                    <default>false</default>
+                    <label>Not Reachable</label>
+                </value>
+                <value>
+                    <fullName>Prospective</fullName>
+                    <default>false</default>
+                    <label>Prospective</label>
+                </value>
+                <value>
+                    <fullName>Working</fullName>
+                    <default>false</default>
+                    <label>Working</label>
+                </value>
+                <value>
+                    <fullName>Not Converted</fullName>
+                    <default>false</default>
+                    <label>Not Converted</label>
+                </value>
+                <value>
+                    <fullName>Qualified</fullName>
+                    <default>false</default>
+                    <label>Qualified</label>
+                </value>
+                <value>
+                    <fullName>Deactivated</fullName>
+                    <default>false</default>
+                    <label>Deactivated</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Lead_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New Student</fullName>
+                    <default>false</default>
+                    <label>New Student</label>
+                </value>
+                <value>
+                    <fullName>Follow up Student</fullName>
+                    <default>false</default>
+                    <label>Follow up Student</label>
+                </value>
+                <value>
+                    <fullName>Visa Guidance</fullName>
+                    <default>false</default>
+                    <label>Visa Guidance</label>
+                </value>
+                <value>
+                    <fullName>Visa Submission</fullName>
+                    <default>false</default>
+                    <label>Visa Submission</label>
+                </value>
+                <value>
+                    <fullName>Open Day UK</fullName>
+                    <default>false</default>
+                    <label>Open Day UK</label>
+                </value>
+                <value>
+                    <fullName>Open Day Australia</fullName>
+                    <default>false</default>
+                    <label>Open Day Australia</label>
+                </value>
+                <value>
+                    <fullName>World Education Fair</fullName>
+                    <default>false</default>
+                    <label>World Education Fair</label>
+                </value>
+                <value>
+                    <fullName>Open Day - Canada</fullName>
+                    <default>false</default>
+                    <label>Open Day - Canada</label>
+                </value>
+                <value>
+                    <fullName>Called by Udhmila</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Called by Udhmila</label>
+                </value>
+                <value>
+                    <fullName>Called by Zeina</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Called by Zeina</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Marital_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Marital Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Single</fullName>
+                    <default>false</default>
+                    <label>Single</label>
+                </value>
+                <value>
+                    <fullName>Married</fullName>
+                    <default>false</default>
+                    <label>Married</label>
+                </value>
+                <value>
+                    <fullName>Divorced</fullName>
+                    <default>false</default>
+                    <label>Divorced</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Middle_Names__c</fullName>
+        <externalId>false</externalId>
+        <label>Middle Names</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Migrated_FB_Lead__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Migrated FB Lead</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Mobile__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Nearest_Branch__c</fullName>
+        <description>Nearest Branch</description>
+        <externalId>false</externalId>
+        <label>Nearest Branch</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Colombo</fullName>
+                    <default>false</default>
+                    <label>Colombo</label>
+                </value>
+                <value>
+                    <fullName>Kandy</fullName>
+                    <default>false</default>
+                    <label>Kandy</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Not_Modified__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( CreatedDate ==  LastModifiedDate , &quot;Not Started Working&quot;, &quot;Working&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Not Modified</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opt_out__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will be used to unsubscribe from CD Mass Emails. Please uncheck it manually if mass emails to be activated</inlineHelpText>
+        <label>Unsubscribe from Mass Emails?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Other_Qualifications__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If you select Other in the multi picklist, specify the qualification here</inlineHelpText>
+        <label>Other Qualifications</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Other_University__c</fullName>
+        <externalId>false</externalId>
+        <label>Other University</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Participated__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Participated?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Passport_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Passport Number</label>
+        <length>12</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Postal_Zip_Code_2__c</fullName>
+        <description>correspondence address</description>
+        <externalId>false</externalId>
+        <label>Postal/Zip Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Postal_Zip_Code_p__c</fullName>
+        <description>postal code for permanent address</description>
+        <externalId>false</externalId>
+        <label>Postal/Zip Code</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Preferred_University__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Preferred University</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>University Should be True</errorMessage>
+            <filterItems>
+                <field>University__c.IsReady__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>University__c</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ReportCalulateMonthYear__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(MONTH(DATEVALUE(CreatedDate)), 
+1, &quot;January&quot;, 
+2, &quot;February&quot;, 
+3, &quot;March&quot;, 
+4, &quot;April&quot;, 
+5, &quot;May&quot;, 
+6, &quot;June&quot;, 
+7, &quot;July&quot;, 
+8, &quot;August&quot;, 
+9, &quot;September&quot;, 
+10,&quot;October&quot;, 
+11,&quot;November&quot;, 
+12,&quot;December&quot;, 
+&quot;None&quot;) &amp; &quot; &quot; &amp; TEXT(YEAR(DATEVALUE(CreatedDate)))</formula>
+        <label>Report Calculated Month and Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Shared_with_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Shared with</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Leads1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Shared_with__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Shared with</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Rating</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hot</fullName>
+                    <default>false</default>
+                    <label>Hot</label>
+                </value>
+                <value>
+                    <fullName>Warm</fullName>
+                    <default>false</default>
+                    <label>Warm</label>
+                </value>
+                <value>
+                    <fullName>Cold</fullName>
+                    <default>false</default>
+                    <label>Cold</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Unique_Field__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>false</externalId>
+        <label>Unique Field</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Web_Lead_Message__c</fullName>
+        <externalId>false</externalId>
+        <label>Web Lead Message</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Web_Lead_Subject__c</fullName>
+        <externalId>false</externalId>
+        <label>Web Lead Subject</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Workflow_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Workflow Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Leads</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>First_Name__c</columns>
+        <columns>Last_Name__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Email__c</columns>
+        <columns>Country_p__c</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <columns>Interested_Field_of_Study__c</columns>
+        <columns>Lead_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Australia_Application_Week_Dec_2020</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name_text__c</field>
+            <operation>equals</operation>
+            <value>Australian Application Week</value>
+        </filters>
+        <label>Australia Application Week - Dec 2020</label>
+    </listViews>
+    <listViews>
+        <fullName>Australia_Kandy_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Australia Kandy</label>
+        <queue>Australia_Kandy</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Australia_Lead</fullName>
+        <columns>NAME</columns>
+        <columns>Last_Name__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Lead_Type__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Interested_Field_of_Study__c</columns>
+        <columns>Email__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Queue</filterScope>
+        <label>Australia Colombo</label>
+        <queue>Australia_Colombo</queue>
+    </listViews>
+    <listViews>
+        <fullName>Australia_New_Zealand_Admissions_Day</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>Australia &amp; New Zealand Admissions Day</value>
+        </filters>
+        <label>Australia &amp; New Zealand Admissions Day</label>
+    </listViews>
+    <listViews>
+        <fullName>Ayanthi_s_Prospective_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Ayanthi&apos;s Prospective</label>
+        <queue>Ayanthi_s_Prospective</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>CSU_Open_Day_Aug_2019</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>Charles Sturt University Open Day_Aug2019</value>
+        </filters>
+        <label>CSU Open Day_Aug 2019</label>
+    </listViews>
+    <listViews>
+        <fullName>Canada_Kandy_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Canada Kandy</label>
+        <queue>Canada_Kandy</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Canada_open_day_4th_July_2019</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>Canada Open Day 4th July 2019</value>
+        </filters>
+        <label>Canada open day 4th July 2019</label>
+    </listViews>
+    <listViews>
+        <fullName>Created_Today</fullName>
+        <columns>NAME</columns>
+        <columns>Last_Name__c</columns>
+        <columns>Middle_Names__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Type__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Created Today</label>
+    </listViews>
+    <listViews>
+        <fullName>Deakin_Application_Week_Dec_2020</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name_text__c</field>
+            <operation>equals</operation>
+            <value>Deakin University Application Week</value>
+        </filters>
+        <label>Deakin Application Week - Dec 2020</label>
+    </listViews>
+    <listViews>
+        <fullName>Deakin_Open_Day</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>Deakin University Open Day_Aug2019</value>
+        </filters>
+        <label>Deakin University Open Day_Aug 2019</label>
+    </listViews>
+    <listViews>
+        <fullName>Deakin_Open_Day_July_2020</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>Deakin Open Day - July 2020</value>
+        </filters>
+        <label>Deakin Open Day - July 2020</label>
+    </listViews>
+    <listViews>
+        <fullName>Fariha_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Fariha</label>
+        <queue>Fariha</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>General_Queue_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>General Queue</label>
+        <queue>General_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Germany_Colombo_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Germany Colombo</label>
+        <queue>Germany_Colombo</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Germany_Kandy_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Germany Kandy</label>
+        <queue>Germany_Kandy</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Kandy_Campus_Direct_Expo</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>Campus Direct Expo - Queens Hotel</value>
+        </filters>
+        <label>Kandy - Campus Direct Expo</label>
+    </listViews>
+    <listViews>
+        <fullName>Lead_Selector_for_Mass_Emails</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Email_Triggered__c</columns>
+        <columns>Campaign_Name_text__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>Email__c</columns>
+        <columns>Gender__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Email__c</field>
+            <operation>equals</operation>
+            <value>lahirus@outlook.com</value>
+        </filters>
+        <label>Lead Selector for Mass Emails</label>
+    </listViews>
+    <listViews>
+        <fullName>Lead_User</fullName>
+        <columns>NAME</columns>
+        <columns>Last_Name__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Email__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Lead_Type__c</columns>
+        <columns>Preferred_University__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OWNER.ALIAS</field>
+            <operation>equals</operation>
+            <value>lead</value>
+        </filters>
+        <label>Lead User</label>
+    </listViews>
+    <listViews>
+        <fullName>Multi_Destination_Edu_Expo_Sep_2019</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>Multi Destination Education Expo</value>
+        </filters>
+        <label>Multi Destination Edu Expo Sep 2019</label>
+    </listViews>
+    <listViews>
+        <fullName>NZ</fullName>
+        <columns>NAME</columns>
+        <columns>Last_Name__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Lead_Type__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Interested_Field_of_Study__c</columns>
+        <columns>Email__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Queue</filterScope>
+        <label>NZ</label>
+        <queue>NZ</queue>
+    </listViews>
+    <listViews>
+        <fullName>Not_Converted_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Not Converted</label>
+        <queue>Not_Converted</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Shearing_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Shared</label>
+        <queue>Shared</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Study_in_UK_University_of_Liverpool</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name_text__c</field>
+            <operation>equals</operation>
+            <value>Study in UK Webinar with University of Liverpool - Feb 2021</value>
+        </filters>
+        <label>Study in UK University of Liverpool</label>
+    </listViews>
+    <listViews>
+        <fullName>The_UK_Virtual_Open_Day_Kandy_AUG2021</fullName>
+        <columns>NAME</columns>
+        <columns>Email__c</columns>
+        <columns>Lead_Type__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Preferred_University__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>The UK Virtual Open Day Kandy AUG2021</value>
+        </filters>
+        <label>The UK Virtual Open Day Kandy AUG2021</label>
+    </listViews>
+    <listViews>
+        <fullName>Today</fullName>
+        <columns>NAME</columns>
+        <columns>Email__c</columns>
+        <columns>First_Name__c</columns>
+        <columns>Last_Name__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>City__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Lead_Type__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Today</label>
+    </listViews>
+    <listViews>
+        <fullName>UCW_online_event_5th_Dec_2020</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name_text__c</field>
+            <operation>equals</operation>
+            <value>Online Spot-On Admission Session by University Canada West</value>
+        </filters>
+        <label>UCW online event 5th Dec 2020</label>
+        <sharedTo>
+            <group>All_CDUK_Users</group>
+            <group>Hasara</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>UK_Application_Week_Jan_2021</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name_text__c</field>
+            <operation>equals</operation>
+            <value>UK Application Week - Jan 2021</value>
+        </filters>
+        <label>UK Application Week - Jan 2021</label>
+    </listViews>
+    <listViews>
+        <fullName>UK_Canada_Application_Week_March_Apr</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name_text__c</field>
+            <operation>equals</operation>
+            <value>UK &amp; Canada Application Week - March-April 2021</value>
+        </filters>
+        <label>UK &amp; Canada Application Week - March-Apr</label>
+    </listViews>
+    <listViews>
+        <fullName>UK_Kandy_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>UK Kandy</label>
+        <queue>UK_Kandy</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>UK_Scholarships_Information_session</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>UK Scholarships &amp; Information session</value>
+        </filters>
+        <label>UK Scholarships &amp; Info session 2020 Jan</label>
+    </listViews>
+    <listViews>
+        <fullName>UK_and_Canada_Virtual_Open_Day_Sep_2021</fullName>
+        <columns>NAME</columns>
+        <columns>Email__c</columns>
+        <columns>Lead_Type__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Preferred_University__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>UK and Canada Virtual Open Day Sep 2021</value>
+        </filters>
+        <label>UK and Canada Virtual Open Day Sep 2021</label>
+    </listViews>
+    <listViews>
+        <fullName>UK_open_day_29th_June_2019</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name_text__c</field>
+            <operation>equals</operation>
+            <value>UK - OPEN DAY - 29th June 2019</value>
+        </filters>
+        <label>UK open day 29th June 2019</label>
+    </listViews>
+    <listViews>
+        <fullName>Undecided_Lead</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Undecided</label>
+        <queue>Undecided</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>VU_Open_Day_Sep_2019</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>Victoria University - Open Day</value>
+        </filters>
+        <label>VU Open Day_Sep 2019</label>
+    </listViews>
+    <listViews>
+        <fullName>Varini_s_List</fullName>
+        <columns>NAME</columns>
+        <columns>Last_Name__c</columns>
+        <columns>Email__c</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <columns>Gender__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>Lead_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>Varini</value>
+        </filters>
+        <label>Varini&apos;s List</label>
+    </listViews>
+    <listViews>
+        <fullName>WEF_2019_all</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name_text__c</field>
+            <operation>equals</operation>
+            <value>World Education Fair 2019</value>
+        </filters>
+        <label>World Education Fair 2019</label>
+    </listViews>
+    <listViews>
+        <fullName>WEF_OCT_2019</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>the World Education Fair - October 2019</value>
+        </filters>
+        <label>WEF OCT 2019</label>
+    </listViews>
+    <listViews>
+        <fullName>World_Edu_Fair_2021</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name_text__c</columns>
+        <columns>Participated__c</columns>
+        <columns>Email__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name_text__c</field>
+            <operation>equals</operation>
+            <value>World Edu Fair 2021</value>
+        </filters>
+        <label>World Edu Fair - 2021</label>
+    </listViews>
+    <listViews>
+        <fullName>World_Education_Fair_2019_Oct</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>the World Education Fair - October 2019</value>
+        </filters>
+        <label>World Education Fair 2019 - Oct</label>
+    </listViews>
+    <listViews>
+        <fullName>World_Education_Fair_2020_March</fullName>
+        <columns>NAME</columns>
+        <columns>Campaign_Name__c</columns>
+        <columns>Country_Interested_In__c</columns>
+        <columns>DOB__c</columns>
+        <columns>Current_Qualification__c</columns>
+        <columns>Lead_Status__c</columns>
+        <columns>Email__c</columns>
+        <columns>Mobile__c</columns>
+        <columns>Lead_Source__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Expected_Year_to_Begin__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Campaign_Name__c</field>
+            <operation>equals</operation>
+            <value>the World Education Fair 2020 - March</value>
+        </filters>
+        <label>World Education Fair 2020 - March</label>
+    </listViews>
+    <nameField>
+        <label>Lead Name</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Leads</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
+        <listViewButtons>Email_Sender</listViewButtons>
+        <searchResultsAdditionalFields>Last_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Email__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Lead_Source__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Address_Line</fullName>
+        <active>false</active>
+        <description>Address Line Field id Required</description>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;), ISBLANK(     Address_Line_1__c ), ISCHANGED(Lead_Status__c) )</errorConditionFormula>
+        <errorDisplayField>Address_Line_1__c</errorDisplayField>
+        <errorMessage>Address Line Field id Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Address_Line_2</fullName>
+        <active>false</active>
+        <description>Address Line Field is Missing</description>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;), ISBLANK(    Address_Line_2__c ), ISCHANGED(Lead_Status__c) )</errorConditionFormula>
+        <errorDisplayField>Address_Line_2__c</errorDisplayField>
+        <errorMessage>Address Line  Field is Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>City_Field</fullName>
+        <active>false</active>
+        <description>City Field is Missing</description>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;), ISBLANK(    City_p__c ), ISCHANGED(Lead_Status__c) )</errorConditionFormula>
+        <errorDisplayField>City_p__c</errorDisplayField>
+        <errorMessage>City Field is Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Country</fullName>
+        <active>false</active>
+        <description>Country is Required Field</description>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;), ISBLANK(    Country_p__c ), ISCHANGED(Lead_Status__c) )</errorConditionFormula>
+        <errorDisplayField>Country_p__c</errorDisplayField>
+        <errorMessage>Country Field is Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Current_Qualification</fullName>
+        <active>true</active>
+        <description>Current qualification value should not be null</description>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;), ISBLANK(  Current_Qualification__c ), ISCHANGED(Lead_Status__c) )</errorConditionFormula>
+        <errorDisplayField>Current_Qualification__c</errorDisplayField>
+        <errorMessage>Current Qualification Field  is Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Expected_year_to_begin</fullName>
+        <active>true</active>
+        <description>Expected year to begin is required field</description>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;), ISBLANK(   Expected_Year_to_Begin__c ), ISCHANGED(Lead_Status__c) )</errorConditionFormula>
+        <errorDisplayField>Expected_Year_to_Begin__c</errorDisplayField>
+        <errorMessage>Expected year to begin Field is Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>FirstName_Required</fullName>
+        <active>false</active>
+        <errorConditionFormula>ISBLANK( Name )</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>First Name Required</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>First_Name_should_contain_only_alphabets</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT( 
+OR( 
+ISNULL(Name),REGEX(Name ,&quot;([a-zA-Z- ])*&quot;)))</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>First Name Should be in Alphabets</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Gender</fullName>
+        <active>true</active>
+        <description>Gender is Required Field</description>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;), ISBLANK(TEXT( Gender__c )), ISCHANGED(Lead_Status__c) )</errorConditionFormula>
+        <errorDisplayField>Gender__c</errorDisplayField>
+        <errorMessage>Gender Field is Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Intrested_Field_of_Study</fullName>
+        <active>true</active>
+        <description>Intrested field of study is required field</description>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;), ISBLANK(Interested_Field_of_Study__c  ), ISCHANGED(Lead_Status__c))</errorConditionFormula>
+        <errorDisplayField>Interested_Field_of_Study__c</errorDisplayField>
+        <errorMessage>Intrested field of study Field is Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Last_Name</fullName>
+        <active>true</active>
+        <description>Last should contain only alphabets</description>
+        <errorConditionFormula>NOT( 
+OR( 
+ISBLANK(Last_Name__c ),REGEX( Last_Name__c ,&quot;([a-zA-Z- ])*&quot;)))</errorConditionFormula>
+        <errorDisplayField>Last_Name__c</errorDisplayField>
+        <errorMessage>Last Name Should be in Alphabets</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Maritual_Status</fullName>
+        <active>true</active>
+        <description>Maritual Status Field Is Required</description>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;), ISBLANK(  TEXT(Marital_Status__c)), ISCHANGED(Lead_Status__c) )</errorConditionFormula>
+        <errorDisplayField>Marital_Status__c</errorDisplayField>
+        <errorMessage>Maritual Status Field Is Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mobile_should_Contin_Only_Numbers</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+    NOT(ISBLANK( Mobile__c )),
+    LEN(Mobile__c ) &lt; 10
+)</errorConditionFormula>
+        <errorDisplayField>Mobile__c</errorDisplayField>
+        <errorMessage>Mobile Number should contain 10 numbers</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Postal_Zipcode</fullName>
+        <active>false</active>
+        <description>Postal/Zip code Field is Missing</description>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;), ISBLANK(    Postal_Zip_Code_p__c ), ISCHANGED(Lead_Status__c) )</errorConditionFormula>
+        <errorDisplayField>Postal_Zip_Code_p__c</errorDisplayField>
+        <errorMessage>Postal/Zip code Field is Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Preferred_University</fullName>
+        <active>true</active>
+        <description>Preferred University is Required Field</description>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;), ISBLANK( Preferred_University__c  ), ISCHANGED(Lead_Status__c) )</errorConditionFormula>
+        <errorDisplayField>Preferred_University__c</errorDisplayField>
+        <errorMessage>Preferred University Field is Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Required_City</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;), ISBLANK( City__c ), ISCHANGED(Lead_Status__c) )</errorConditionFormula>
+        <errorDisplayField>City__c</errorDisplayField>
+        <errorMessage>City Field is Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Required_DOB</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;), ISBLANK( DOB__c ), ISCHANGED(Lead_Status__c) )</errorConditionFormula>
+        <errorDisplayField>DOB__c</errorDisplayField>
+        <errorMessage>DOB Field is Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Required_Field_Country_Intrested_In</fullName>
+        <active>true</active>
+        <description>Required Field Country Intrested In  Field is Required for Qualifying Lead</description>
+        <errorConditionFormula>AND(ISPICKVAL( Lead_Status__c , &apos;Qualified&apos;),ISBLANK( Country_Interested_In__c ), ISCHANGED(Lead_Status__c) )</errorConditionFormula>
+        <errorDisplayField>Country_Interested_In__c</errorDisplayField>
+        <errorMessage>Required Field Country Intrested In  Field is Required for Qualifying Lead</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Email_Sender</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Email Sender</masterLabel>
+        <openType>replace</openType>
+        <page>LeadSelector</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>Lead_Convert</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Lead Convert</masterLabel>
+        <openType>newWindow</openType>
+        <page>LeadConvertPage</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+</CustomObject>

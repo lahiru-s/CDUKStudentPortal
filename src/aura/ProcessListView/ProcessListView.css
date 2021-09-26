@@ -1,0 +1,11 @@
+.THIS {
+}
+
+.THIS.margin_top{
+   margin-top: 10px;
+}
+
+.THIS .disabledDiv {
+    pointer-events: none;
+    opacity: 0.6;
+}

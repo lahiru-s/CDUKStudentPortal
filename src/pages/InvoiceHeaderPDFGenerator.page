@@ -1,0 +1,74 @@
+<apex:page standardController="Invoice_Header__c" extensions="InvoiceHeaderPDFGeneratorCtrlr">
+    <apex:slds />
+
+    <!--Page Header-->
+    <div class="slds-scope">
+        <div class="slds-page-header">
+            <div class="slds-page-header__row slds-grid">
+                <div class="slds-page-header__col-title slds-col">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-custom-custom23">
+                                <svg class="slds-icon slds-page-header__icon" aria-hidden="true">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/custom-sprite/svg/symbols.svg#custom23')}" />
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span class="slds-page-header__title slds-truncate">
+                                            {!Invoice_Header__c.Name}
+                                        </span>
+                                    </h1>
+                                </div>
+                            </div>
+                            <p class="slds-page-header__name-meta">
+                                Invoice Header
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col slds-text-align_right">
+                    <button class="slds-button slds-button_neutral" onclick="sforce.one.navigateToSObject( '{!Invoice_Header__c.Id}', 'detail' );">
+                        <span style="font-size: 16px">&#x21E6;</span> Back to <strong>{!Invoice_Header__c.Name}</strong>
+                    </button>
+                    <button id="saveButton" class="slds-button slds-button_brand" onclick="savePDF();">
+                        Save as PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--PDF Frame-->
+    <apex:iframe src="{!$Page.InvoiceHeaderPDF}?id={!Invoice_Header__c.Id}" 
+                 frameborder="none"
+                 width="100%"
+                 height="1200px"
+                 scrolling="yes" />
+
+    <!--Scripts-->
+    <script type="text/javascript">
+   
+        var savePDF = function() {
+            var saveBtn = document.getElementById( "saveButton" );
+            
+            saveBtn.innerHTML = "Saving. Please wait...";
+            saveBtn.disabled  = true;
+            
+            InvoiceHeaderPDFGeneratorCtrlr.saveAsPDF(
+                "{!Invoice_Header__c.Id}",
+                function( result, event ) {
+                    saveBtn.innerHTML = "Save as PDF";
+                    saveBtn.disabled  = false;
+                    
+                    alert( result );
+                    
+                    window.top.location.href = "/{!Invoice_Header__c.Id}";
+                }
+            );
+        };
+    </script>
+</apex:page>

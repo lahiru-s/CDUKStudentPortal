@@ -1,0 +1,368 @@
+<!--
+* Description       : openday web to lead form to be added as a regiter event : version 1.1
+* @author           : Lahiru Subasinghe
+* @since            : February 24, 2018
+-->
+
+<apex:page controller="CD_ProcessLeadController" standardStylesheets="false" sidebar="false" applyBodyTag="False" showHeader="False" id="idProLd" action="{!updateLeadRecord}">
+    
+    <head>
+        <Title>Web to Lead Form</Title>
+        <!--<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>-->
+        <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+        <apex:slds />
+    </head>
+    
+    <body class="slds-scope">
+        <apex:form id="processLeadForm">
+            
+            <div class="LDS_processLead">
+                <!--Add notifications-->
+                
+                <!-- Error Alerts-->
+                <div id="reqFieldMissingAlert" class="slds-hide">
+                    <div class="slds-notify_container">
+                      <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+                        <span class="slds-assistive-text">Error</span>
+                        <h2>
+                          <svg aria-hidden="true" class="slds-icon slds-icon--small slds-m-right--x-small">
+                          </svg>
+                          <!--Please select all mandatory fields!-->
+                          <div class="slds-col slds-align-middle">                                    
+                            <!--<h2 class="slds-text-heading--small ">Urgent Order!</h2>-->
+                            <span id="errorNotificatonTxt"></span>
+                          </div>
+                        </h2>  
+                      </div>
+                    </div>
+                </div>
+                
+                <!--Success Alerts-->
+                <div id="successAlert" class="slds-hide">
+                  <div class="slds-notify_container">
+                      <div class="slds-notify slds-notify--toast slds-theme--success" role="alert">
+                          <span class="slds-assistive-text">Success</span>
+                          <div class="slds-notify__content slds-grid">
+                              <div class="slds-col slds-align-middle">
+                                  <h2 class="slds-text-heading--small ">The Lead was successfully updated!</h2>
+                              </div>
+                          </div>
+                     </div>
+                  </div>
+                </div>
+                
+                <!--Server validation-->
+                <apex:outputPanel id="serverErrorId" rendered="{!showError}" >
+                    <div id="serverValId">
+                        <div class="slds-notify_container">
+                          <div class="slds-notify slds-notify--alert slds-theme--error slds-theme--alert-texture" role="alert">
+                            <span class="slds-assistive-text">Error</span>
+                            <h2>
+                              <svg aria-hidden="true" class="slds-icon slds-icon--small slds-m-right--x-small">
+                              </svg>
+                              <!--Please select all mandatory fields!-->
+                              <div class="slds-col slds-align-middle">                                    
+                                <!--<h2 class="slds-text-heading--small ">Urgent Order!</h2>-->
+                                <apex:outputText escape="false" value="{!errorMsg}" id="errorMsgId"></apex:outputText>
+                              </div>
+                            </h2>
+                              <button class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close" onClick="hideNotification(); return false;">
+                                <svg class="slds-button__icon" aria-hidden="true">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                        xlink:href="/apexpages/slds/latest//assets/icons/utility-sprite/svg/symbols.svg#close">
+                                    </use>
+                                </svg>
+                                <span class="slds-assistive-text">Close</span>
+                              </button>
+                          </div>
+                        </div>
+                    </div>
+                </apex:outputPanel>
+                
+                <apex:outputPanel id="serverSuccessId" rendered="{!showSuccess}">
+                    <div id="serverValSuccessId">
+                        <div class="slds-notify_container">
+                            <div class="slds-notify_container slds-is-relative">
+                                <div class="slds-notify slds-notify_toast slds-theme_success" role="alert">
+                                  <span class="slds-assistive-text">success</span>
+                                  <span class="slds-icon_container slds-icon-utility-info slds-m-right_small slds-no-flex slds-align-top" title="Description of icon when needed">
+                                    <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                            xlink:href="/apexpages/slds/latest/assets/icons/utility-sprite/svg/symbols.svg#info">
+                                        </use>
+                                    </svg>
+                                  </span>
+                                  <div class="slds-notify__content">
+                                    <h2 class="slds-text-heading_small">The Lead was successfully updated!</h2>
+                                  </div>
+                                  <button class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close" onClick="hideNotification(); return false;">
+                                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                      <use xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                            xlink:href="/apexpages/slds/latest//assets/icons/utility-sprite/svg/symbols.svg#close">
+                                        </use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Close</span>
+                                  </button>
+                                </div>
+                              </div>
+                          </div>
+                    </div>    
+                </apex:outputPanel>    
+                <!--End of notifications-->
+                
+                
+                <!--Start of the modals-->
+                <div id="modalBackDrop" class="slds-backdrop"></div>
+                <!--End of the modals-->
+                
+                <!--Spinners-->
+                <apex:actionStatus id="actStatus">
+                    <apex:facet name="start">
+                        <div class="slds-spinner_container">
+                            <div class="slds-spinner--brand slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                            </div>
+                        </div>
+                    </apex:facet>
+                </apex:actionStatus> 
+                <!--End of spinners-->
+                
+                <!--Start of the header section-->
+                <div class="slds-page-header">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-has-flexi-truncate slds-box">
+                            <div class="slds-media slds-no-space slds-grow">
+                                <div class="slds-media__figure">  
+                                    <!--
+                                    <span class="slds-icon_container slds-icon--small slds-icon-standard-account" title="Account Standard Icon">
+                                        <img src="{!URLFOR($Asset.SLDS, 'assets/icons/standard/account_60.png')}" alt="Account Standard Icon" />
+                                    </span>
+                                    -->
+                                    <span class="slds-icon_container slds-icon-standard-avatar" title="description of icon when needed">
+                                        <svg class="slds-icon" aria-hidden="true">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                                xlink:href="/apexpages/slds/latest/assets/icons/action-sprite/svg/symbols.svg#new_lead">
+                                            </use>
+                                        </svg>
+                                    </span>
+                                    
+                                </div>
+                                <div class="slds-media__body">
+                                    <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="Perform Search"><b>Mark Attendance</b></h1>
+                                    <br />
+                                </div>                                
+                            </div>
+                            <div>
+                                <p class="slds-line-height--reset">The Lead will be automatically updated upon loading this page. If its unsuccessfull, please use below form to manually update! 
+                                    <br />
+                                </p>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <!--End of the header section-->
+                
+                <!--Start of the outer panel-->
+                <div id="outerPanel" style="padding: 10px 2%;">
+                    <div class="slds-panel__section">
+                        <apex:outputPanel id="webForm">
+                            <div class="slds-grid slds-grid--pull-padded">
+                                <!--Colomn 1-->
+                                    <div class="slds-col--padded" style="width:50%;">
+                                        <div class="slds-form--compound">
+                                            <div class="form-element__group">
+                                                <div class="slds-form-element__row">
+                                                    <div class="slds-form-element">
+                                                        <div name="fNameLbl" Class="slds-form-element__label">Email Address</div>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputText id="emailTxt" maxLength="250" value="{!email}" styleClass="slds-input" tabindex="1"/>
+                                                        </div>                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                
+                                                 
+
+                                                
+                                            </div>
+                                        </div>    
+                                    </div>
+                                <!--Colomn 1-->
+                                
+                                <!--Colomn 2-->
+                                    <div class="slds-col--padded" style="width:50%;">
+                                        <div class="slds-form--compound">
+                                            <div class="form-element__group">
+                                                
+                                                <div class="slds-form-element__row">
+                                                    <div class="slds-form-element">
+                                                        <div name="fNameLbl" Class="slds-form-element__label">Phone Number</div>
+                                                        <div class="slds-form-element__control">
+                                                            <apex:inputText id="phoneTxt" maxLength="250" value="{!phoneNumber}" styleClass="slds-input" tabindex="1"/>
+                                                        </div>                                        
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                                
+                                                
+                                                <br />
+                                                
+                                                
+                                            </div>
+                                        </div>    
+                                    </div>
+                                <!--Colomn 2-->
+                            </div>
+                        </apex:outputPanel>
+                    </div>
+                </div>
+                <!--End Of the form fields : outputPanel--> 
+                
+                <!--Button panel-->
+                <div class="slds-panel__section"> 
+                    <div class="slds-modal__header  slds-theme--default slds-text-align--center" role="group">                                                  
+                        
+                        <!--<apex:commandButton action="{!saveLead}" value="Upload"/>-->
+                        <button class="slds-button slds-button--brand buttondx" id="submitBtn" onClick="javascript: submitWebToLeadForm(); return false;" tabindex="9" rerender="serverSuccessId, outerPanel, actStatus, webForm, serverErrorId">Submit Form</button>
+                        <button id="btnClear" onClick="javascript: clearWebForm(); return false;" class="slds-button slds-button--brand buttondx" tabindex="10">Clear Form</button>
+                    </div>
+                </div>
+                <!--End of Button panel--> 
+                
+                <!--All Action functions-->
+                <!---Added action functions for future references -->
+                <!--
+                <apex:actionFunction name="saveLead" action="{!saveLead}" rerender="serverSuccessId, outerPanel, actStatus, webForm, serverErrorId">
+                    <apex:param assignTo="{!vfVersion}" value="v1" name="vfVersion" />
+                    
+                </apex:actionFunction>  
+                -->
+                <apex:actionFunction name="saveLead" action="{!saveLead}">
+                    
+                    <!--<apex:param assignTo="{!recordtypetext}" value="01236000000xk08" name="recordtypetext"/>-->
+                </apex:actionFunction>
+                <apex:actionFunction name="clearForm" action="{!clearForm}"/>
+                <apex:actionFunction name="closeNotification" action="{!closeNotification}" status="actStatus"/>
+                <!--
+                <apex:actionFunction action="{!getVFVersion}" name="passToController" rerender="test">
+                    <apex:param value="1" name="inputVal"/>
+                </apex:actionFunction>
+                -->
+                
+                <!--End of action functions-->
+                
+            </div>
+            
+        </apex:form>
+    
+    
+    <script>
+    j$ = jQuery.noConflict();
+    
+    
+    //function ReceiveMessage(evt) {
+    //    console.log('abc');
+    //    console.log(evt.data);
+    //    console.log(evt.origin);
+    //}
+    
+    //window.addEventListener('message', function(event) {
+    //  alert(`Received ${event.data} from ${event.origin}`);
+    //});
+    
+    window.addEventListener('message', function(event) { 
+
+        console.log('vf page');
+        console.log(event.data);
+        //console.log(event);
+    }); 
+    
+    //if (!window['postMessage'])
+    //        alert("oh crap");
+    //    else {
+    //        if (window.addEventListener) {
+    //            console.log('comes here');
+    //            window.addEventListener("message", ReceiveMessage, false);
+    //        }
+    //    } 
+        
+        
+
+    function submitWebToLeadForm(){
+        
+        var email = document.getElementById('idProLd:processLeadForm:emailTxt').value;
+        var phone = document.getElementById('idProLd:processLeadForm:phoneTxt').value;
+        
+        
+        if (email == '' && phone == ''){
+            j$('#errorNotificatonTxt').html("Please input values!");
+            j$('#reqFieldMissingAlert').removeClass('slds-hide');
+            j$('#reqFieldMissingAlert').fadeIn().delay(3000).fadeOut();
+            
+        }else if(email != ''){
+         
+            //Regex validation for email
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (reg.test(email) == false){
+                j$('#errorNotificatonTxt').html("Email address has to be in correct format!");
+                j$('#reqFieldMissingAlert').removeClass('slds-hide');
+                j$('#reqFieldMissingAlert').fadeIn().delay(3000).fadeOut();
+            
+            }else if (phone != ''){
+                if (phone.length < 10){
+            
+                    j$('#errorNotificatonTxt').html("Mobile Number should contain 10 numbers!");
+                    j$('#reqFieldMissingAlert').removeClass('slds-hide');
+                    j$('#reqFieldMissingAlert').fadeIn().delay(3000).fadeOut();
+                }else
+                    saveLead();
+                
+            }else{
+                saveLead();
+            
+            }
+            
+        }else if (phone != ''){
+            
+            if (phone.length < 10){
+            
+                j$('#errorNotificatonTxt').html("Mobile Number should contain 10 numbers!");
+                j$('#reqFieldMissingAlert').removeClass('slds-hide');
+                j$('#reqFieldMissingAlert').fadeIn().delay(3000).fadeOut();
+            }else
+                saveLead();
+        }
+            
+        
+    }
+    
+    
+    function hideNotification(){
+        closeNotification();
+        //clearForm();
+        //document.getElementById("{!$Component.serverErrorId}").style.display="none";
+
+    }
+    
+    function clearWebForm(){
+        clearForm();
+    }
+    
+    </script>
+    </body>
+    
+    <style>
+        .buttondx {
+            background-color: #0070d2 !important;
+            border: 1px solid #0070d2 !important;
+        }
+        
+        .requiredbar {
+            border-left: 2px solid #c00 !important;
+        }
+    </style>
+
+</apex:page>

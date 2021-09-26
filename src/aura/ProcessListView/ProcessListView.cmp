@@ -1,0 +1,190 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable,lightning:isUrlAddressable" access="global" controller="CD_WOD_MassEmailController">
+    <aura:attribute name="selectedIds" type="String" default="" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>    
+    <aura:attribute name="showModal" type="boolean" default="false"/>    
+    <aura:attribute name="options" type="List" default="[
+                                                        {'label': 'Send the Newsletter', 'value': '2'},
+                                                        {'label': 'Send the Event Details', 'value': '3'},
+                                                        {'label': 'Send the Campaign Reminder', 'value': '1'},
+                                                        ]"/>
+    <aura:attribute name="value" type="String" default="0"/>
+    
+    <!--Selected Values-->
+    <aura:attribute name="availableCampaigns" type="Object" default=" "/>
+    <aura:attribute name="availableTemplates" type="Object" default=" "/>
+    <aura:attribute name="availableFiles" type="Object" default=" "/>
+    
+    <!--Selected Values-->
+    <aura:attribute name="selectedCampaign" type="String" default=""/>
+    <aura:attribute name="selectedTemplate" type="String" default=""/>
+    <aura:attribute name="selectedScheduleTime" type="String" default=""/>
+    <aura:attribute name="selectedFile" type="String" default=""/>
+    
+    <!--Selected Item-->
+    <aura:attribute name="isCampaign" type="Boolean" default="false"/>
+    <aura:attribute name="isNewsLetter" type="Boolean" default="false"/>
+    <aura:attribute name="isEvent" type="Boolean" default="false"/>
+    
+    <!--<p>Selected Ids</p>
+    <p><b>{!v.selectedIds}</b></p>-->
+    
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-opportunity" title="opportunity">
+                            <lightning:icon iconName="standard:email" alternativeText="Email" title="Email" />
+                            <span class="slds-assistive-text">Mass Email Sender</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" title="">Mass Email Sender</span>
+                                </h1>
+                            </div>
+                        </div>
+                        <p class="slds-page-header__name-meta">Campaign • News Letter • Events</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <lightning:card class="margin_top" title="Email Actions">
+        <aura:set attribute="footer">
+            <lightning:button label="Send Emails" variant="brand" onclick="{!c.openModal}"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            <lightning:radioGroup name="radioGroup"
+                                  label=""
+                                  options="{! v.options }"
+                                  value="{! v.value }"
+                                  type="radio"
+                                  onchange="{!c.setSection}"/>
+        </p>
+        <aura:if isTrue="{! v.value == '1' }">
+            <div class="slds-box slds-m-around_small">
+                <lightning:layout >
+                    <lightning:layoutItem padding="around-small">
+                        <div class="header-column">
+                            <p>
+                                <lightning:select name="campaignSelect" label="Select a Campaign" aura:id="campaignSelect">
+                                    <aura:iteration items="{!v.availableCampaigns}" var="option">
+                                        <option text="{!option.CampaignName}" value="{!option.CampaignId}"/>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </p>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="form-element-01">Select Schedule Time</label>
+                            <div class="slds-form-element__control">
+                                <lightning:input variant="label-hidden" type="datetime" name="timeSchedule" value="{!v.selectedScheduleTime}"/>
+                            </div>
+                        </div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </div>
+        </aura:if>
+        <aura:if isTrue="{! v.value == '2' }">
+            <div class="slds-box slds-m-around_small" aura:id="newsletterDiv">
+                <lightning:layout >
+                    <lightning:layoutItem padding="around-small">
+                        <div class="header-column">
+                            <p>
+                                <lightning:select name="emailSelect" label="Select Email Template" aura:id="emailSelect">
+                                    <aura:iteration items="{!v.availableTemplates}" var="option">
+                                        <option text="{!option.Name}" value="{!option.Id}"/>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </p>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="form-element-01">Select Schedule Time</label>
+                            <div class="slds-form-element__control">
+                                <lightning:input variant="label-hidden" type="datetime" name="timeSchedule" value="{!v.selectedScheduleTime}"/>
+                            </div>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="header-column">
+                            <!--<p><lightning:input name="file1" type="file" label="Select Attachment (PDF) Max: 3MB" multiple="false" accept=".pdf" onchange=""/></p>-->
+                            <lightning:select name="fileSelect" label="Select an Attachment" aura:id="fileSelect">
+                                <option text="--None--" value="0"/>
+                                <aura:iteration items="{!v.availableFiles}" var="option">
+                                    <option text="{!option.Title}" value="{!option.Id}"/>
+                                </aura:iteration>
+                            </lightning:select>
+                        </div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </div>
+        </aura:if>
+        <aura:if isTrue="{! v.value == '3' }">
+            <div class="slds-box slds-m-around_small" aura:id="eventsDiv">
+                <lightning:layout >
+                    <lightning:layoutItem padding="around-small">
+                        <div class="header-column">
+                            <p>
+                                <lightning:select name="eventSelect" label="Select a Campaign" aura:id="eventSelect">
+                                    <option text="--None--" value="0"/>
+                                    <aura:iteration items="{!v.availableCampaigns}" var="option">
+                                        <option text="{!option.CampaignName}" value="{!option.CampaignId}"/>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </p>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="header-column">
+                            <p>
+                                <lightning:select name="emailSelect_event" label="Select Email Template" aura:id="emailSelect_event">
+                                    <aura:iteration items="{!v.availableTemplates}" var="option">
+                                        <option text="{!option.Name}" value="{!option.Id}"/>
+                                    </aura:iteration>
+                                </lightning:select>
+                            </p>
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="form-element-01">Select Schedule Time</label>
+                            <div class="slds-form-element__control">
+                                <lightning:input variant="label-hidden" type="datetime" name="timeSchedule" value="{!v.selectedScheduleTime}"/>
+                            </div>
+                        </div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </div>
+        </aura:if>
+    </lightning:card>
+    
+    <aura:if isTrue="{!v.showModal}">
+        <div class="dialog" style="height: 640px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_small slds-hyphenate">Warning!</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <p style="text-align:center;">You are about to send a mass email message.<br/> Are you sure you want to continue?</p>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_destructive" onclick="{!c.closeModal}">Close</button>
+                        <button class="slds-button slds-button_success" onclick="{!c.submitSchedule}">Submit</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </aura:if>
+</aura:component>

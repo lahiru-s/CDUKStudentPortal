@@ -1,0 +1,1366 @@
+<!--
+
+Created By :- Arulmozhi.R
+Description:- This VF PAGE Saves the Student Application Form(SLDS VF Page)
+-->
+
+<apex:page Controller="StudentApplicationClass" showHeader="false" sidebar="false">
+    
+    <!--Stylesheets-->
+    <apex:slds /> 
+    
+    <!-- Lightning Design System Source -->
+    <apex:stylesheet value="{!URLFOR($Resource.LightningDesignSystem, 'styles/salesforce-lightning-design-system.css')}" />
+    
+    <!-- jQuery CDN -->
+    <apex:includeScript value="https://code.jquery.com/jquery-1.11.1.min.js"/>
+    
+    <!-- MomentJS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+    
+    <script src="{!URLFOR($Resource.DateJS)}"/>
+    
+    <!-- Important To Include ALJS init File-->
+    <script src="{!URLFOR($Resource.LightningDesignSystemALJS, 'appiphony-lightning-js-master/public/src/jquery.aljs-init.js')}"/>
+            
+    <!-- ALJS Datepicker Module-->
+    <script src="{!URLFOR($Resource.LightningDesignSystemALJS, 'appiphony-lightning-js-master/public/src/jquery.aljs-datepicker.js')}"/>
+                    
+    <!-- ALJS Multi-Select Picklist Module-->
+    <script src="{!URLFOR($Resource.LightningDesignSystemALJS, 'appiphony-lightning-js-master/public/src/jquery.aljs-multi-select.js')}"/>
+                            
+    <!-- ALJS Multi-Select Picklist Module-->
+    <script src="{!URLFOR($Resource.LightningDesignSystemALJS, 'appiphony-lightning-js-master/public/src/jquery.aljs-lookup.js')}"/>
+
+    <script>       
+                
+
+    window.uploadedFiles = {};
+    
+    var j$ = jQuery.noConflict();
+    //Assigning SLDS Static Resource Path To A Variable To Use It With ALJS Initialization
+    var assetsLoc = '{!URLFOR($Resource.LightningDesignSystem)}';
+    
+    //ALJS Initialization
+    
+    j$.aljsInit({
+        assetsLocation: '{!URLFOR($Asset.SLDS)}', //SLDS Static Resource Path
+        scoped: true
+    });
+    
+    /* Date Format for all Date Fields in the Form*/
+    
+    j$(document).ready(function() {
+        //Initializing Datepicker with options To The SLDS Input on document ready.
+        
+        j$('[data-date = "true"]').datepicker({
+            format: 'DD/MM/YYYY'//Date Format Of Datepicker Input Field
+            
+        });
+    });
+    
+    /* Lookup For University */
+    
+    function getExistingUniversities() {
+        StudentApplicationClass.getExistingUniversities(
+            function( result, event ) {
+                var universities = result;
+                j$( "#txtUniversity" ).lookup(
+                    {
+                        items : universities,
+                        showSearch : true,
+                        recentLabel : ''
+                    }
+                );
+            }
+        );
+    }
+    
+    j$( document ).ready(function () {
+        getExistingUniversities();
+        
+    });
+
+    var app = angular.module('MultiSelectPicklistDemo', []);
+    app.controller('HomeController', ['$scope', function($scope) {
+        //fetch the picklist values from controller
+        $scope.allPicklistValues= {!CountryInterestedIn}; 
+        $scope.selectedPicklistValues = [];
+        $scope.selectedAddElementIndex = null;
+        $scope.selectedRemoveElementIndex = null;
+        
+        // Below function will help to set the index of element that needs to be added
+        $scope.setElementIndexToAdd = function(index) {
+            $scope.selectedAddElementIndex= index;
+        }
+        
+        // Below function will add selected element to the selected elememt list and also removes the element from all element list 
+        $scope.addToSelectedPicklistValues = function() {
+            
+            if($scope.selectedAddElementIndex != undefined || $scope.selectedAddElementIndex === 0){
+                var selectedPicklistValue = $scope.allPicklistValues[$scope.selectedAddElementIndex];
+                $scope.selectedPicklistValues.push(selectedPicklistValue);
+                //alert('1'+selectedPicklistValue);
+                $scope.allPicklistValues.splice($scope.selectedAddElementIndex, 1);
+                $scope.selectedAddElementIndex = null;
+                selectedPicklistValue = null;
+            }    
+        }
+        
+        // Below function will help to set the index of element that needs to be removed
+        $scope.setElementIndexToRemove = function(index) {
+            $scope.selectedRemoveElementIndex = index;
+        }
+        
+        // Below function will remove selected element from the selected elememt list and also add the element back to the all element list
+        $scope.removeFromSelectedPicklistValues = function() {
+            if($scope.selectedRemoveElementIndex != undefined || $scope.selectedRemoveElementIndex === 0){
+                var selectedPicklistValueToRemove = $scope.selectedPicklistValues[$scope.selectedRemoveElementIndex ];
+                $scope.selectedPicklistValues.splice($scope.selectedRemoveElementIndex , 1); 
+                $scope.allPicklistValues.push(selectedPicklistValueToRemove);
+                //alert('2'+selectedPicklistValueToRemove);
+                $scope.selectedRemoveElementIndex = null ;
+                selectedPicklistValueToRemove  = null ;
+            }    
+        }
+        <!--STUDY INTEREST Picklist End -->
+            
+        <!--EDUCATION QUALIFICATION Picklist Start -->
+        
+        //fetch the educationqualify picklist values from controller
+        $scope.allPicklistValuesedu= {!EducationPickValues}; 
+        $scope.selectedPicklistValuesedu = [];
+        $scope.selectedAddElementIndexedu = null;
+        $scope.selectedRemoveElementIndexedu = null;
+        
+        // educationqualify Below function will help to set the index of element that needs to be added 
+        $scope.setElementIndexToAddQual = function(index) {
+            $scope.selectedAddElementIndexedu= index;
+        }
+        
+        // educationqualify Below function will add selected element to the selected elememt list and also removes the element from all element list 
+        $scope.addtoqualifyPicklistValues = function() {
+            
+            
+            if($scope.selectedAddElementIndexedu != undefined || $scope.selectedAddElementIndexedu === 0){
+                var selectedPicklistValueToadd = $scope.allPicklistValuesedu[$scope.selectedAddElementIndexedu];
+                $scope.selectedPicklistValuesedu.push(selectedPicklistValueToadd);
+                //alert('1'+selectedPicklistValueToadd);
+                getpickval(selectedPicklistValueToadd);
+                $scope.allPicklistValuesedu.splice($scope.selectedAddElementIndexedu, 1);
+                $scope.selectedAddElementIndexedu = null;
+                selectedPicklistValueToadd = null;
+            }  
+           
+            // document.getElementById('spinner').className += ' slds-show';
+        }
+        
+        // educationqualify Below function will help to set the index of element that needs to be removed
+        $scope.setElementEduIndexToRemove = function(index) {
+            $scope.selectedRemoveElementIndexedu = index;
+        }
+        
+        // educationqualify Below function will remove selected element from the selected elememt list and also add the element back to the all element list
+        $scope.removequalifyPicklistValues = function() {
+            
+            if($scope.selectedRemoveElementIndexedu != undefined || $scope.selectedRemoveElementIndexedu === 0){
+                var selectedPicklistValueToRemove = $scope.selectedPicklistValuesedu[$scope.selectedRemoveElementIndexedu];
+                $scope.selectedPicklistValuesedu.splice($scope.selectedRemoveElementIndexedu , 1); 
+                $scope.allPicklistValuesedu.push(selectedPicklistValueToRemove);
+                removepickval(selectedPicklistValueToRemove);
+                $scope.selectedRemoveElementIndexedu = null ;
+                selectedPicklistValueToRemove  = null ;
+            }    
+        }
+        
+    }]);
+    
+    /* JQuery to Copy the Permanent Address to Correspondence Address */
+    
+    function copyAddress( ele ) {
+        if( ele.checked ) {
+            jQuery( "[data-personaladdr=true]" ).each(
+                function() {
+                    var corrAddrFieldId         = jQuery( this ).data( "otherfield" );
+                    var personalAddrFieldValue  = jQuery( this ).val();
+                    
+                    jQuery( "#" + corrAddrFieldId ).val( personalAddrFieldValue );
+                }
+            );
+        }
+        else {
+            jQuery( "[data-personaladdr=true]" ).each(
+                function() {
+                    var corrAddrFieldId = jQuery( this ).data( "otherfield" );
+                    jQuery( "#" + corrAddrFieldId ).val( "" );
+                }
+            );
+        }
+    }
+    
+    function getpickval(selectedPicklistValueToadd) {
+        var n = selectedPicklistValueToadd;
+        spinner.show();
+        afunction(n);
+    }
+    
+    function removepickval(selectedPicklistValueToRemove) {
+        var o = selectedPicklistValueToRemove;
+        spinner.show();
+        bfunction(o);
+    }
+    
+    function handleFile() {
+        var siz = document.getElementById('file-upload-input-01').size;
+        if(siz > 3){
+            var sizebig = 'File is too big!';
+            document.getElementById("fileName").innerHTML = sizebig;
+        }
+        else{
+            var fullPath = document.getElementById('file-upload-input-01').value;
+            var split = fullPath.split(/(\\|\/)/g).pop();
+            document.getElementById("fileName").innerHTML = split;
+        }
+        
+    }
+    
+    function submitForm(){
+        var formValidatted = true;
+        
+        /* Agent ID Validation only when the URL Parameter is True */
+      
+        if( document.getElementById('txtAgentID') != null ) {
+            var agentIDS = document.getElementById('txtAgentID').value;
+            if (agentIDS == "") {
+                document.getElementById('form_AgentID').innerHTML="Agent ID is Required";
+                formValidatted = false;
+            }else{
+                document.getElementById('form_AgentID').innerHTML="";
+            }
+        }
+        
+        /* First Name Validation*/
+        var firstName = document.getElementById('txtFirstName').value;
+        if (firstName == "") {
+            document.getElementById('form_First_Name').innerHTML="First Name is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_First_Name').innerHTML="";
+        }
+        
+        /* Last Name Validation*/
+        var lastName = document.getElementById('txtLastName').value;
+        if (lastName == "") {
+            document.getElementById('form_Last_name').innerHTML="Last Name is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Last_name').innerHTML="";
+        }
+        
+        /* Email Validation*/
+        var email = document.getElementById('txtEmail').value;
+        if (email == "") {
+            document.getElementById('form_Email').innerHTML="Email is Required";
+            formValidatted = false;
+        }else{
+            var emailTest = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            if(emailTest.test(email)) {
+                document.getElementById('form_Email').innerHTML="";
+                
+            }
+            else if(!emailTest.test(email)) {
+                document.getElementById('form_Email').innerHTML="Email should be in valid format";
+                formValidatted = false;
+            }
+        }
+        
+        /* Gender Validation*/
+        var gender = document.getElementById('txtGender').value;
+        if (gender == "None") {
+            document.getElementById('form_Gender').innerHTML="Gender is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Gender').innerHTML="";
+        }
+        
+        /* DOB Validation*/
+        var DOB = document.getElementById('txtDOB').value;
+        if (DOB == "") {
+            document.getElementById('form_DOB').innerHTML="Date of Birth is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_DOB').innerHTML="";
+        }
+        
+        /* Middle Name Validation*/
+        var middleName = document.getElementById('txtMiddleName').value;
+        if (middleName == "") {
+            document.getElementById('form_Middle_Name').innerHTML="Middle Name is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Middle_Name').innerHTML="";
+        }
+        
+        /* Maritial Status Validation*/
+        var marialStatus = document.getElementById('txtMarital').value;
+        if (marialStatus == "None") {
+            document.getElementById('form_Marital_Status').innerHTML="Maritial Status is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Marital_Status').innerHTML="";
+        }
+        
+        /* Mobile Number Validation*/
+        var mobileNumber = document.getElementById('txtMobile').value;
+        if (mobileNumber == "") {
+            document.getElementById('form_Mobile').innerHTML="Mobile Number is Required";
+            formValidatted = false;
+        }  
+        else {
+            var phone_pattern = /^[-()0-9*#+]+$/;
+            if(phone_pattern.test(mobileNumber)) {
+                document.getElementById('form_Mobile').innerHTML="";
+              
+            }
+            else if(!phone_pattern.test(mobileNumber)) {
+            document.getElementById('form_Mobile').innerHTML="Mobile Number cannot have Alphabets";
+                formValidatted = false;
+            }
+        }
+        
+        /* Country Interested In Validation*/
+        var countryInterestedIn = angular.element( "body" ).scope().selectedPicklistValues;
+        if ( countryInterestedIn == null || countryInterestedIn == undefined || countryInterestedIn.length === 0 ) {
+            document.getElementById('form_Country_Interested').innerHTML="Country Interested in is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Country_Interested').innerHTML="";
+        }
+        
+        /* Interested Field of Study Validation*/
+        var studyArea = document.getElementById('textareaStudy').value;
+        if (studyArea == "") {
+            document.getElementById('form_Interested_Study').innerHTML="Interested Field of Study is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Interested_Study').innerHTML="";
+        }
+        
+        /* Preferred University Validation*/
+        var university  = j$('#txtUniversity').lookup('getSelection');
+        if (university == null) {
+            document.getElementById('form_Preferred_University').innerHTML = "Preferred University is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Preferred_University').innerHTML="";
+        }
+        
+        /* Address Line Validation*/
+        var addressLine = document.getElementById('textareaAddress').value;
+        if (addressLine == "") {
+            document.getElementById('form_AddressLine').innerHTML="Address Line is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_AddressLine').innerHTML="";
+        }
+        
+        /* Address Line City Validation*/
+        var addressLineCity = document.getElementById('txtAddressCity').value;
+        if (addressLineCity == "") {
+            document.getElementById('form_City').innerHTML="City is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_City').innerHTML="";
+        }
+        
+        /* Address Line Country Validation*/
+        var addressLineCountry = document.getElementById('txtAddressCountry').value;
+        if (addressLineCountry == "") {
+            document.getElementById('form_Country').innerHTML="Country is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Country').innerHTML="";
+        }
+        
+        /* Address Line Country Validation*/
+        var addressLineZipcode = document.getElementById('txtPostalCode').value;
+        if (addressLineZipcode == "") {
+            document.getElementById('form_Zipcode').innerHTML="Country is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Zipcode').innerHTML="";
+        }
+        
+        /* Correspondence Address Line Validation*/
+        var correspondenceAddress = document.getElementById('textareaCorresAddress').value;
+        if (correspondenceAddress == "") {
+            document.getElementById('form_Corres_Address').innerHTML="Address Line is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Corres_Address').innerHTML="";
+        }
+        
+        /* Correspondence Address Line City Validation*/
+        var correspondenceAddressLineCity = document.getElementById('txtCorresCity').value;
+        if (correspondenceAddressLineCity == "") {
+            document.getElementById('form_Corres_City').innerHTML="City is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Corres_City').innerHTML="";
+        }
+        
+        /* Correspondence Address Line Country Validation*/
+        var correspondenceAddressLineCountry = document.getElementById('txtCorresCountry').value;
+        if (correspondenceAddressLineCountry == "") {
+            document.getElementById('form_Corres_Country').innerHTML="Country is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Corres_Country').innerHTML="";
+        }
+        
+        /* Correspondence Address Line Zipcode Validation*/
+        var correspondenceAddressLinePostal = document.getElementById('txtCorresPostalCode').value;
+        if (correspondenceAddressLinePostal == "") {
+            document.getElementById('form_Corres_Zipcode').innerHTML="Country is Required";
+            formValidatted = false;
+        }else{
+            document.getElementById('form_Corres_Zipcode').innerHTML="";
+        }
+        
+        /* Emergency Email Should be Valid Validation*/
+        var emergencyEmail = document.getElementById('emgEmail').value;
+        if (emergencyEmail != "") {           
+            var emailFormat = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            if(emailFormat.test(emergencyEmail)) {
+                document.getElementById('form_Emergency_Email').innerHTML="";                
+            }
+            else if( !emailFormat.test(emergencyEmail) ) {
+                document.getElementById('form_Emergency_Email').innerHTML="Email should be in valid format";
+                formValidatted = false;
+            }
+        }
+        
+        /* Validation for Education Qualification Details*/
+        jQuery("[data-qualification]").each(function() {
+           if(jQuery(this).val() === "" || jQuery(this).val() === "None"){
+               formValidatted = false;
+               return false;
+           }
+        });
+        
+        jQuery("[data-qualification]").each(function() {
+           if(jQuery(this).val() === "" || jQuery(this).val() === "None"){
+               jQuery(this).prev().show();
+           }
+           else {
+               jQuery(this).prev().hide();
+           }
+        });
+        
+        for( var key in uploadedFiles ) {
+            if( uploadedFiles[key] === null ) {
+                formValidatted = false;
+                break;
+            }
+        }
+        
+        for( var key in uploadedFiles ) {
+            if( uploadedFiles[key] === null ) {
+                jQuery("[data-qual-attach='" + key + "']").prev().show();
+            }
+            else {
+                jQuery("[data-qual-attach='" + key + "']").prev().hide();
+            }
+        }
+        
+        if (formValidatted == true)  {
+            checkEmailAndSave();
+        } 
+        else {
+            return false;
+        }
+
+    }
+    
+    /* Function to get all Qualification Maps*/
+    function getAllQualifications() {
+        var allQualifications = {};
+        
+        jQuery( "[data-qualification]" ).each(
+            function() {
+                var qualification = jQuery( this ).data( "qualification" );
+                var key = jQuery( this ).data( "key" );
+                
+                if( !allQualifications[qualification] ) {
+                    allQualifications[qualification] = {};
+                }
+                
+                allQualifications[qualification][key] = jQuery( this ).val();
+            }
+        );
+        
+        for( var key in allQualifications ) {
+            allQualifications[key].documentId = uploadedFiles[key];
+        }
+        
+        return allQualifications;
+    }
+    
+    function checkEmailAndSave() {
+        checkExistingEmail( true );
+    }
+    
+    function saveApplication() {    
+       //alert(j$( "#txtDOB" ).val());
+        
+        var application = {
+            personalInformation : {
+                agentID         : j$( "#txtAgentID" ).val(),
+                firstName       : j$( "#txtFirstName" ).val(),
+                lastName        : j$( "#txtLastName" ).val(),
+                email           : j$( "#txtEmail" ).val(),
+                gender          : j$( "#txtGender" ).val(),
+                DOB             : j$( "#txtDOB" ).val(),
+             
+                
+                 
+                
+                homeTelephone   : j$( "#txtHomePhone" ).val(),
+                middleName      : j$( "#txtMiddleName" ).val(),
+                maritalStatus   : j$( "#txtMarital" ).val(),
+                mobile          : j$( "#txtMobile" ).val(),
+                city            : j$( "#txtCity" ).val(),
+                passportNo      : j$( "#txtPassport" ).val(),
+                accountSource   : j$( "#txtSource" ).val()
+            },
+            
+            studyInterest : {
+                countryInterestedIn     : angular.element( "body" ).scope().selectedPicklistValues.join( ";" ),
+                interestedFieldOfStudy  : j$( "#textareaStudy").val(),
+                preferredUniversity     : j$( "#txtUniversity").lookup('getSelection').id
+            },
+            
+            personalAddressInformation : {
+                personalAddressLine     : j$( "#textareaAddress" ).val(),
+                personalCity            : j$( "#txtAddressCity").val(),
+                personalCountry         : j$( "#txtAddressCountry" ).val(),
+                personalZipcode         : j$( "#txtPostalCode").val()
+            },
+            
+            correspondenceAddressInformation : {
+                isCheck                     : j$( "#addressCheckbox").is(":checked"),
+                correspondenceAddressLine   : j$( "#textareaCorresAddress").val(),
+                correspondenceCity          : j$( "#txtCorresCity").val(),
+                correspondenceCountry       : j$( "#txtCorresCountry").val(),
+                correspondenceZipcode       : j$( "#txtCorresPostalCode").val()
+            },
+            
+            EmergencyContactPerson : {
+                emergencyContactPersonName  : j$( "#emgcon").val(),
+                emergencyNumber             : j$( "#conNumber").val(),
+                emergencyCoverType          : j$( "#txthelthcovr").val(),
+                emergencyEmail              : j$( "#emgEmail").val(),
+                firstLanguage               : j$( "#firstLang").val()
+            },            
+            
+            EducationalQualification : {
+                englishProficiency      : j$( "#txtengprof").val(),
+                ieltsScore              : j$( "#txtIELTS" ).val(),
+                testDate                : j$( "#txttestdate").val() ?  j$( "#txttestdate" ).val(): null,
+                
+                educationQualification  : angular.element( "body" ).scope().selectedPicklistValuesedu.join( ";" ),
+                qualifications          : getAllQualifications()
+            }
+        };
+        
+        
+        spinner.show();
+        
+        StudentApplicationClass.saveApplication(
+            application,
+            function(result,event) {
+                spinner.hide();
+                
+                if( event.status ) {
+                    var msg = "The form has been submitted successfully.";
+                    
+                    headerSuccessToast.showToast( msg, 10000 );
+                    footerSuccessToast.showToast( msg, 10000 );
+                }
+                else {
+                    headerErrorToast.showToast( event.message, 10000 );
+                    footerErrorToast.showToast( event.message, 10000 );
+                }
+            },
+            {
+                escape : false,
+                buffer : false,
+                timeout : 120000
+            }
+        );
+        
+    }
+    
+    /* Function to check If Email Exist Already */
+    
+    function checkExistingEmail( continueToSave ) {
+        var email = j$( "#txtEmail" ).val();
+        if( email !== "" ) {
+            spinner.show();
+            
+            StudentApplicationClass.isEmailExisting(
+                email,
+                function( result, event ) {
+                    spinner.hide();
+                    
+                    if( event.status ) {
+                        if( result ) {
+                            var msg = "Your E mail address is already used. Please use another Email address to submit your application. For more details contact us - 114545055";
+                            headerWarningToast.showToast( msg, 10000 );
+                            footerWarningToast.showToast( msg, 10000 );
+                        }
+                        else {
+                            if( continueToSave === true ) {
+                                saveApplication();
+                            }
+                        }
+                    }
+                    else {
+                        headerErrorToast.showToast( event.message, 10000 );
+                        footerErrorToast.showToast( event.message, 10000 );
+                    }
+                }
+            );
+        }
+    }
+    
+    </script>   
+   
+    
+    <style>
+       .header-Style {
+            padding: 0.75rem;
+            background: #135eaa;
+            font-size: 2rem;
+            font-family: sans-serif;
+            border-radius: 5px;
+        }  
+        .slds-text-color_error {
+            font-size: 11px;
+            font-weight: bold;
+        }
+    </style> 
+    
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="MultiSelectPicklistDemo">
+        <head>           
+        </head> 
+        
+        <body class="container" ng-controller="HomeController">
+            <c:Spinner componentId="spinner"/>
+            
+            <apex:form id="StudentForm">
+                <div style="width:100%" overflow="auto">
+                    <div class="slds-grid" id="divBodyMainUpper">
+                        <!--Space -->
+                        <div class="slds-col slds-size_2-of-12"></div>
+                        
+                        <!--Form -->
+                        <div class="slds-size_8-of-12">
+                            <div class="slds-text-align_right">
+                                <img src="{!$Resource.CampusDirect}" title="Campus Direct Logo" width="250px;" class="slds-m-top_small slds-m-bottom_small" />                                
+                                <!--<h1 class="slds-page-header__title slds-truncate" title="0771465555">Ph No:-  0771465555</h1> -->
+                                
+                                 <p style="font-size:12;" align="right">If you require further assistance on filling this form please contact one of our counselor on 0771465555/0774865555</p>
+                                
+                            </div>
+                            
+                            <div class="slds-card slds-p-around_medium slds-m-bottom_large">
+                                <div class="slds-m-bottom_medium header-Style">
+                                    <div class="slds-text-heading_medium slds-text-color_inverse slds-text-align_center">
+                                        <h2 class="slds-page-header__title slds-truncate" title="STUDENT APPLICATION FORM">STUDENT APPLICATION FORM</h2>
+                                    </div>
+                                </div>
+                                
+                                <!-- Header Success Toast Component -->
+                                <c:Toast componentId="headerSuccessToast" type="success" />
+                                
+                                <!-- Header Error Toast Component -->
+                                <c:Toast componentId="headerErrorToast" type="error" />
+                                
+                                <!-- Header Warning Toast Component -->
+                                <c:Toast componentId="headerWarningToast" type="warning" />
+                                
+                                
+                                <!-- Agent ID is Displayed only when the IsAgent == True in URL Parameter -->
+                                <apex:outputPanel rendered="{!$CurrentPage.parameters.agent == 'true'}">
+                                    <div class="slds-grid slds-grid_pull-padded-medium">
+                                        <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium">
+                                            <div class="slds-form slds-form_stacked">
+                                                <div class="slds-form-element sld-m-top_medium">
+                                                    <label class="slds-form-element__label" for="txtAgentID">Agent ID*</label>
+                                                    <div id='form_AgentID' class="slds-text-color_error"></div>
+                                                    <div class="slds-form-element__control">
+                                                        <input type="text" id="txtAgentID" class="slds-input" placeholder="Agent ID" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-col slds-p-horizontal_medium"></div>
+                                    </div>
+                                </apex:outputPanel>
+                                
+                                <!--PERSONAL INFORMATION PAGE HEADER -->
+                                <div class="slds-page-header" role="banner">
+                                    <div class="slds-media slds-media--center">
+                                        <div class="slds-media__figure">
+                                            <svg aria-hidden="true" class="slds-icon slds-icon-standard-news">
+                                                <use xlink:href="{!URLFOR($Resource.LightningDesignSystem,'icons/action-sprite/svg/symbols.svg#new_contact')}"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="slds-media__body">
+                                            <h1 class="slds-page-header__title slds-truncate" title="PERSONAL INFORMATION">PERSONAL INFORMATION</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / PAGE HEADER -->
+                                <!-- PERSONAL INFORMATION -->
+                                <div class="slds-grid slds-grid_pull-padded-medium">
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <div class="slds-form slds-form_stacked">
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtFirstName">First Name *</label>
+                                                <div id='form_First_Name' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtFirstName" class="slds-input" placeholder="First Name" />
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtLastName">Last Name *</label>
+                                                <div id='form_Last_name' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtLastName" class="slds-input" placeholder="Last Name" />
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtEmail">Email *</label>
+                                                <div id='form_Email' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtEmail" class="slds-input" placeholder="Email" onchange="checkExistingEmail();"/>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtGender">Gender *</label>
+                                                <div id='form_Gender' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-select_container">
+                                                        <select class="slds-select" id="txtGender">
+                                                            <option value="None">None</option>
+                                                            <apex:repeat value="{!genderList}" var="gender">
+                                                                <option value="{!gender}">{!gender}</option>
+                                                            </apex:repeat>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtDOB">Date of Birth *</label>
+                                                <div id='form_DOB' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+                                                    <svg aria-hidden="true" class="slds-input__icon slds-icon-text-default">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/utility-sprite/svg/symbols.svg#event')}" />
+                                                    </svg>
+                                                    <input id="txtDOB" data-date="true" class="slds-input" type="text" placeholder="Date of Birth" label="Date Picker Label"/>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtHomePhone">Home Telephone No</label>
+                                                <div id='form_HomePH' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtHomePhone" class="slds-input" placeholder="Home Telephone No" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-p-horizontal_medium">
+                                        <div class="slds-form slds-form_stacked">
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtMiddleName">Middle Name *</label>
+                                                <div id='form_Middle_Name' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtMiddleName" class="slds-input" placeholder="Middle Name" />
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtMarital">Marital Status*</label>
+                                                <div id='form_Marital_Status' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-select_container">
+                                                        <select class="slds-select" id="txtMarital">
+                                                            <option value="None">None</option>
+                                                            <apex:repeat value="{!maritalStatusList}" var="marital">
+                                                                <option value="{!marital}">{!marital}</option>
+                                                            </apex:repeat>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtMobile">Mobile *</label>
+                                                <div id='form_Mobile' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtMobile" class="slds-input" placeholder="Mobile" />
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtCity">City</label>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtCity" class="slds-input" placeholder="City" />
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtPassport">Passport Number</label>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtPassport" class="slds-input" placeholder="Passport Number" />
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtSource">How did you Hear About us ?</label>
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-select_container">
+                                                        <select class="slds-select" id="txtSource">
+                                                            <option value="None">None</option>
+                                                            <apex:repeat value="{!sourceList}" var="source">
+                                                                <option value="{!source}">{!source}</option>
+                                                            </apex:repeat>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- PERSONAL INFORMATION End -->
+                                
+                                <!-- PAGE HEADER -->
+                                <div class="slds-page-header" role="banner">
+                                    <div class="slds-media slds-media--center">
+                                        <div class="slds-media__figure">
+                                            <svg aria-hidden="true" class="slds-icon slds-icon-standard-news">
+                                                <use xlink:href="{!URLFOR($Resource.LightningDesignSystem,'icons/standard-sprite/svg/symbols.svg#individual')}"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="slds-media__body">
+                                            <h1 class="slds-page-header__title slds-truncate" title="STUDY INTEREST">STUDY INTEREST</h1>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <!-- / PAGE HEADER -->
+                                <div class="slds-form-element sld-m-top_medium">
+                                    <label class="slds-form-element__label">Country Interested In *</label>
+                                    <div id='form_Country_Interested' class="slds-text-color_error"></div>
+                                </div>  
+                                <div class="slds-picklist--draggable slds-grid">
+                                    <!-- Left Hand side block -->
+                                    <div class="slds-form-element">
+                                        <span class="slds-form-element__label" aria-label="select-1">Picklist Values</span>
+                                        <div class="slds-picklist slds-picklist--multi">
+                                            <ul ng-model="allPicklistValues" class="picklist slds-picklist__options slds-picklist__options--multi shown">
+                                                <div ng-repeat="item in allPicklistValues" class="app">
+                                                    <li class="slds-picklist__item" aria-selected="false" tabindex="0" role="option" ng-click="setElementIndexToAdd($index)" ng-dblclick="setElementIndexToAdd($index);addToSelectedPicklistValues()" >
+                                                        <span class="slds-truncate">
+                                                            <span>{{item}}</span>
+                                                        </span>
+                                                    </li>
+                                                </div>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- / Left Hand side block -->
+                                    
+                                    <!-- Right / Left Arrow -->
+                                    <div class="slds-grid slds-grid--vertical">
+                                        
+                                        <button class="slds-button slds-button--icon-container" type="button" ng-click="addToSelectedPicklistValues()">
+                                            <svg aria-hidden="true" class="slds-button__icon">
+                                                <use xlink:href="{!URLFOR($Resource.LightningDesignSystem, 'icons/utility-sprite/svg/symbols.svg#right')}" ></use>
+                                            </svg>
+                                            <span class="slds-assistive-text" >Right arrow</span>
+                                        </button>
+                                        
+                                        <button class="slds-button slds-button--icon-container" type="button" ng-click="removeFromSelectedPicklistValues()">
+                                            <svg aria-hidden="true" class="slds-button__icon">
+                                                <use xlink:href="{!URLFOR($Resource.LightningDesignSystem, 'icons/utility-sprite/svg/symbols.svg#left')}" ></use>
+                                            </svg>
+                                            <span class="slds-assistive-text" >Left arrow</span>
+                                        </button>
+                                    </div>
+                                    <!-- / Right / Left Arrow -->
+                                    
+                                    <!-- Right Hand side block -->
+                                    <div class="slds-form-element">
+                                        <span class="slds-form-element__label" aria-label="select-2">Selected Values</span>
+                                        <div  class="slds-picklist slds-picklist--multi" >
+                                            <ul ng-model="selectedPicklistValues" class="picklist slds-picklist__options slds-picklist__options--multi shown">
+                                                <div ng-repeat="item in selectedPicklistValues" class="app">
+                                                    <li class="slds-picklist__item" aria-selected="false" tabindex="0" role="option" ng-click="setElementIndexToRemove($index)" ng-dblclick="setElementIndexToRemove($index);removeFromSelectedPicklistValues()">
+                                                        <span class="slds-truncate">
+                                                            <span class="items"  id ="Test">{{item}}</span>
+                                                        </span>
+                                                    </li>
+                                                </div>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-grid slds-grid_pull-padded-medium">
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium">
+                                        <div class="slds-form slds-form_stacked">
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="textareaStudy">Interested Field of Study *</label>
+                                                <div id='form_Interested_Study' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <textarea id="textareaStudy" class="slds-textarea" placeholder="Interested Field of Study"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element slds-lookup" data-select="single" data-scope="single">
+                                            <label class="slds-form-element__label" for="txtUniversity">Preferred University *</label>
+                                            <div id='form_Preferred_University' class="slds-text-color_error"></div>
+                                            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+                                                <svg aria-hidden="false" class="slds-input__icon slds-icon-text-default">
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/utility-sprite/svg/symbols.svg#search')}"></use>
+                                                </svg>
+                                                <input id="txtUniversity" class="slds-lookup__search-input slds-input" type="text" aria-autocomplete="list" role="combobox" aria-expanded="false" aria-activedescendant="" placeholder="Preferred University"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-p-horizontal_medium"></div>
+                                </div>
+                                
+                                <!--PERSONAL ADDRESS PAGE HEADER -->
+                                <div class="slds-page-header slds-m-top_small" role="banner">
+                                    <div class="slds-media slds-media--center">
+                                        <div class="slds-media__figure">
+                                            <svg aria-hidden="true" class="slds-icon slds-icon-standard-news">
+                                                <use xlink:href="{!URLFOR($Resource.LightningDesignSystem,'icons/standard-sprite/svg/symbols.svg#address')}"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="slds-media__body">
+                                            <h1 class="slds-page-header__title slds-truncate" title="PERSONAL ADDRESS INFORMATION">PERSONAL ADDRESS INFORMATION</h1>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <!-- / PAGE HEADER -->
+                                <!--PERSONAL ADDRESS INFORMATION  -->
+                                <div class="slds-grid slds-grid_pull-padded-medium">
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium">
+                                        <div class="slds-form slds-form_stacked">
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="textareaAddress">Address Line *</label>
+                                                <div id='form_AddressLine' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <textarea id="textareaAddress" data-personaladdr="true" data-otherfield="textareaCorresAddress" class="slds-textarea" placeholder="Address Line"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtAddressCity">City *</label>
+                                                <div id='form_City' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtAddressCity" data-personaladdr="true" data-otherfield="txtCorresCity" class="slds-input" placeholder="City" />
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtAddressCountry">Country *</label>
+                                                <div id='form_Country' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtAddressCountry" data-personaladdr="true" data-otherfield="txtCorresCountry" class="slds-input" placeholder="Country" />
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtPostalCode">Postal/Zipcode *</label>
+                                                <div id='form_Zipcode' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtPostalCode" data-personaladdr="true" data-otherfield="txtCorresPostalCode" class="slds-input" placeholder="Postal/Zipcode" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-p-horizontal_medium"></div>
+                                </div>
+                                
+                                <!--Second Block End -->
+                                
+                                <!--CORRESPONDENCE PAGE HEADER -->
+                                <div class="slds-page-header" role="banner">
+                                    <div class="slds-media slds-media--center">
+                                        <div class="slds-media__figure">
+                                            <svg aria-hidden="true" class="slds-icon slds-icon-standard-news">
+                                                <use xlink:href="{!URLFOR($Resource.LightningDesignSystem,'icons/standard-sprite/svg/symbols.svg#address')}"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="slds-media__body">
+                                            <h1 class="slds-page-header__title slds-truncate" title="CORRESPONDENCE ADDRESS INFORMATION">CORRESPONDENCE ADDRESS INFORMATION</h1>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <!-- / PAGE HEADER -->
+                                <!--CORRESPONDENCE ADDRESS INFORMATION-->
+                                <div class="slds-grid slds-grid_pull-padded-medium">
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium">
+                                        <div class="slds-form slds-form_stacked">
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="addressCheckbox">Address for correspondence same as permanent address above</label>
+                                                <div class="slds-form-element__control">
+                                                    <span class="slds-checkbox slds-checkbox_standalone">
+                                                        <input type="checkbox" id="addressCheckbox" onclick="copyAddress( this );"/>
+                                                        <span class="slds-checkbox_faux"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="textareaCorresAddress">Address Line *</label>
+                                                <div id='form_Corres_Address' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <textarea id="textareaCorresAddress" class="slds-textarea" placeholder="Address Line"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtCorresCity">City *</label>
+                                                <div id='form_Corres_City' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtCorresCity" class="slds-input" placeholder="City" />
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtCorresCountry">Country *</label>
+                                                <div id='form_Corres_Country' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtCorresCountry" class="slds-input" placeholder="Country" />
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtCorresPostalCode">Postal/Zipcode *</label>
+                                                <div id='form_Corres_Zipcode' class="slds-text-color_error"></div>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtCorresPostalCode" class="slds-input" placeholder="Postal/Zipcode" />
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-p-horizontal_medium"></div>
+                                </div>
+                                <!--Third Block End -->
+                                
+                                <!--EMERGENCY CONTACT PERSON PAGE HEADER -->
+                                <div class="slds-page-header" role="banner">
+                                    <div class="slds-media slds-media--center">
+                                        <div class="slds-media__figure">
+                                            <svg aria-hidden="true" class="slds-icon slds-icon-standard-news">
+                                                <use xlink:href="{!URLFOR($Resource.LightningDesignSystem,'icons/action-sprite/svg/symbols.svg#new_contact')}"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="slds-media__body">
+                                            <h1 class="slds-page-header__title slds-truncate" title="EMERGENCY CONTACT PERSON">EMERGENCY CONTACT PERSON</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- / EMERGENCY CONTACT PERSON PAGE HEADER -->
+                                
+                                <!--EMERGENCY CONTACT PERSON Start -->
+                                <div class="slds-grid slds-grid_pull-padded-medium">
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium"> 
+                                        <div class="slds-form slds-form_stacked">
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="emgcon">Emergency Contact Person Name </label>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="emgcon" data-personaladdr="true" data-otherfield="emgcontact" class="slds-input" placeholder="Emergency Contact Person Name" />
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="conNumber">Contact Number</label>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="conNumber" data-personaladdr="true" data-otherfield="contactNum" class="slds-input" placeholder="Contact Number" />
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txthelthcovr">Health Cover Type</label>
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-select_container">
+                                                        <select class="slds-select" id="txthelthcovr">
+                                                            <option value="None">None</option>
+                                                            <apex:repeat value="{!healthcovertypeList}" var="healthcovr">
+                                                                <option value="{!healthcovr}">{!healthcovr}</option>
+                                                            </apex:repeat>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-p-horizontal_medium"> 
+                                        <div class="slds-form-element sld-m-top_medium">
+                                            <label class="slds-form-element__label" for="emgEmail">Emergency Email</label>
+                                            <div id='form_Emergency_Email' class="slds-text-color_error"></div>
+                                            <div class="slds-form-element__control">
+                                                <input type="text" id="emgEmail" data-personaladdr="true" data-otherfield="EmergEmail" class="slds-input" placeholder="Emergency Email" />
+                                            </div>
+                                        </div>
+                                        <div class="slds-form-element sld-m-top_medium">
+                                            <label class="slds-form-element__label" for="firstLang">What is your first language</label>
+                                            <div class="slds-form-element__control">
+                                                <input type="text" id="firstLang" data-personaladdr="true" data-otherfield="firstLangua" class="slds-input" placeholder="What is your first language:" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <!-- EMERGENCY CONTACT PERSON END-->
+                                <!--EDUCATION QUALIFICATION PAGE HEADER -->
+                                <div class="slds-page-header" role="banner">
+                                    <div class="slds-media slds-media--center">
+                                        <div class="slds-media__figure">
+                                            <svg aria-hidden="true" class="slds-icon slds-icon-standard-news">
+                                                <use xlink:href="{!URLFOR($Resource.LightningDesignSystem,'icons/action-sprite/svg/symbols.svg#new_contact')}"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="slds-media__body">
+                                            <h1 class="slds-page-header__title slds-truncate" title="EDUCATION QUALIFICATION">EDUCATION QUALIFICATION</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-grid slds-grid_pull-padded-medium">
+                                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium">
+                                        <div class="slds-form slds-form_stacked">
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtengprof">English Proficiency</label>
+                                                <div class="slds-form-element__control">
+                                                    <div class="slds-select_container">
+                                                        <select class="slds-select" id="txtengprof">
+                                                            <!-- <option value="None">None</option>-->
+                                                            <apex:repeat value="{!englishProfList}" var="engprof">
+                                                                <option value="{!engprof}">{!engprof}</option>
+                                                            </apex:repeat>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtIELTS">IELTS Score</label>
+                                                <div class="slds-form-element__control">
+                                                    <input type="text" id="txtIELTS" class="slds-input" placeholder="IELTS Score" />
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txttestdate">Test Date:</label>
+                                                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+                                                    <svg aria-hidden="true" class="slds-input__icon slds-icon-text-default">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/utility-sprite/svg/symbols.svg#event')}" />
+                                                    </svg>
+                                                    <input id="txttestdate" data-date="true" class="slds-input" type="text" placeholder="Test Date" label="Test Date:"/>
+                                                </div>
+                                            </div>
+                                            <div class="slds-form-element sld-m-top_medium">
+                                                <label class="slds-form-element__label" for="txtEmail">Education Qualification</label>
+                                            </div>  
+                                            <div class=" slds-grid slds-picklist--draggable">
+                                                <!-- Left Hand side block -->
+                                                <div class="">
+                                                    <span class="slds-form-element__label" aria-label="select-1">Picklist Values</span>
+                                                    <div class="slds-picklist slds-picklist--multi">
+                                                        <ul ng-model="allPicklistValuesedu" class="picklist slds-picklist__options slds-picklist__options--multi shown">
+                                                            <div ng-repeat="item in allPicklistValuesedu" class="app">
+                                                                <li class="slds-picklist__item" aria-selected="false" tabindex="0" role="option" ng-click="setElementIndexToAddQual($index)" ng-dblclick="setElementIndexToAddQual($index);addtoqualifyPicklistValues()" >
+                                                                    <span class="slds-truncate">
+                                                                        <span>{{item}}</span>
+                                                                    </span>
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <!-- / Left Hand side block -->
+                                                
+                                                <!-- Right / Left Arrow -->
+                                                <div class="slds-grid slds-grid--vertical">
+                                                    
+                                                    <button class="slds-button slds-button--icon-container" type="button" ng-click="addtoqualifyPicklistValues()">
+                                                        <svg aria-hidden="true" class="slds-button__icon">
+                                                            <use xlink:href="{!URLFOR($Resource.LightningDesignSystem, 'icons/utility-sprite/svg/symbols.svg#right')}" ></use>
+                                                        </svg>
+                                                        <span class="slds-assistive-text" >Right arrow</span>
+                                                    </button>
+                                                    
+                                                    <button class="slds-button slds-button--icon-container" type="button" ng-click="removequalifyPicklistValues()">
+                                                        <svg aria-hidden="true" class="slds-button__icon">
+                                                            <use xlink:href="{!URLFOR($Resource.LightningDesignSystem, 'icons/utility-sprite/svg/symbols.svg#left')}" ></use>
+                                                        </svg>
+                                                        <span class="slds-assistive-text" >Left arrow</span>
+                                                    </button>
+                                                </div>
+                                                <!-- / Right / Left Arrow -->
+                                                
+                                                <!-- Right Hand side block -->
+                                                <div class="slds-form-element">
+                                                    <span class="slds-form-element__label" aria-label="select-2">Selected Values</span>
+                                                    <div  class="slds-picklist slds-picklist--multi" >
+                                                        <ul ng-model="selectedPicklistValuesedu" class="picklist slds-picklist__options slds-picklist__options--multi shown">
+                                                            <div ng-repeat="item in selectedPicklistValuesedu" class="app">
+                                                                <li class="slds-picklist__item" ari-selected="false" tabindex="0" role="option" ng-click="setElementEduIndexToRemove($index)" ng-dblclick="setElementIndexToRemove($index);removequalifyPicklistValues()">
+                                                                    <span class="slds-truncate">
+                                                                        <span class="items" >{{item}}</span>
+                                                                    </span>
+                                                                </li>
+                                                            </div>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-p-horizontal_medium"></div>
+                                </div>
+                                <!--Action Function -->
+                                <apex:actionFunction name="afunction" action="{!receiveInput}" oncomplete="spinner.hide();" rerender="repeatPanel">
+                                    <apex:param id="aname" name="input1" value="" />
+                                </apex:actionFunction>
+                                <!--Action Function End-->
+                                <!--Action Function -->
+                                <apex:actionFunction name="bfunction" action="{!removeInput}" oncomplete="spinner.hide();" rerender="repeatPanel">
+                                    <apex:param id="bname" name="input2" value="" />
+                                </apex:actionFunction>
+                                <!--Action Function End-->
+                                <apex:outputPanel layout="block" id="repeatPanel" >
+                                    <apex:panelGrid columns="1" id="form">
+                                        <apex:repeat value="{!qcmap}" var="q">
+                                            <!-- Post Graduate-->
+                                            <div class="slds-page-header" role="banner">
+                                                <div class="slds-media slds-media--center">
+                                                    <div class="slds-media__figure">
+                                                        <svg aria-hidden="true" class="slds-icon slds-icon-standard-news">
+                                                            <use xlink:href="{!URLFOR($Resource.LightningDesignSystem,'icons/action-sprite/svg/symbols.svg#new_contact')}"></use>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="slds-media__body">
+                                                        <h1 class="slds-page-header__title slds-truncate" title="{!q}">{!q}</h1>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="slds-grid slds-grid_pull-padded-medium">
+                                                <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium"> 
+                                                    <div class="slds-form slds-form_stacked">
+                                                        <div class="slds-form-element sld-m-top_medium">
+                                                            <label class="slds-form-element__label" for="txtCourseName">Name of Course Award *</label>
+                                                            <div class="slds-form-element__control">
+                                                                <div class="slds-text-color_error" style="display: none">Name of Course Award is Required</div>
+                                                                <input type="text" class="slds-input" data-qualification="{!q}" data-key="courseName" placeholder="Name of Course Award" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-form-element sld-m-top_medium">
+                                                            <label class="slds-form-element__label" for="txtSchool">School Institution *</label>
+                                                            <div class="slds-form-element__control">
+                                                                <div class="slds-text-color_error" style="display: none">School Institution is Required</div>
+                                                                <input type="text" class="slds-input" data-qualification="{!q}" data-key="schoolName" placeholder="School Institution" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-form-element sld-m-top_medium">
+                                                            <label class="slds-form-element__label" for="startedMonth">Started Month *</label>
+                                                            <div class="slds-form-element__control">
+                                                                <div class="slds-text-color_error" style="display: none">Started Month is Required</div>
+                                                                <select class="slds-select" data-key="startedMonth" data-qualification="{!q}">
+                                                                    <option value="None">None</option>
+                                                                    <apex:repeat value="{!startMonthList}" var="startMon">
+                                                                        <option value="{!startMon}">{!startMon}</option>
+                                                                    </apex:repeat>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-form-element sld-m-top_medium">
+                                                            <label class="slds-form-element__label" for="startedYear">Started Year *</label>
+                                                            <div class="slds-form-element__control">
+                                                                <div class="slds-text-color_error" style="display: none">Started Year is Required</div>
+                                                                <input type="text" class="slds-input" data-qualification="{!q}" data-key="startedYear" placeholder="Started Year" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-form-element sld-m-top_medium">
+                                                            <label class="slds-form-element__label" for="finishedMonth">Finished Month *</label>
+                                                            <div class="slds-form-element__control">
+                                                                <div class="slds-text-color_error" style="display: none">Finished Month is Required</div>
+                                                                <select class="slds-select" data-key="finishedMonth" data-qualification="{!q}">
+                                                                    <option value="None">None</option>
+                                                                    <apex:repeat value="{!finishMonthList}" var="finishMon">
+                                                                        <option value="{!finishMon}">{!finishMon}</option>
+                                                                    </apex:repeat>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-form-element sld-m-top_medium">
+                                                            <label class="slds-form-element__label" for="finishedYear">Finished Year *</label>
+                                                            <div class="slds-form-element__control">
+                                                                <div class="slds-text-color_error" style="display: none">Finished Year is Required</div>
+                                                                <input type="text" class="slds-input" data-qualification="{!q}" data-key="finishedYear" placeholder="Finished Year" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-form-element sld-m-top_medium">
+                                                            <label class="slds-form-element__label" for="txtLanguage">Language *</label>
+                                                            <div class="slds-form-element__control">
+                                                                <div class="slds-text-color_error" style="display: none">Language is Required</div>
+                                                                <input type="text" class="slds-input languageClass" data-qualification="{!q}" data-key="language" placeholder="Language" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-form-element sld-m-top_medium">
+                                                            <label class="slds-form-element__label" for="txtCountry">Country *</label>
+                                                            <div class="slds-form-element__control">
+                                                                <div class="slds-text-color_error" style="display: none">Country is Required</div>
+                                                                <input type="text" class="slds-input countryClass" data-qualification="{!q}" data-key="country" placeholder="Country" />
+                                                            </div>
+                                                        </div>
+                                                        <span class="slds-form-element__label">Attachment *</span>
+                                                    </div>
+                                                </div>
+                                                <div class="slds-col slds-p-horizontal_medium"></div>
+                                            </div>
+                                            
+                                            <div class="slds-text-color_error" style="display: none">Attachment is Required</div>
+                                            <apex:iframe src="{!$Page.FileUploader}?var={!q}" scrolling="false" frameborder="false" width="100%" height="70px" html-data-qual-attach="{!q}"/>
+                                            
+                                            <script>
+                                            uploadedFiles["{!q}"] = null;
+                                            </script>
+                                        </apex:repeat>
+                                    </apex:panelGrid>
+                                </apex:outputPanel>
+                                
+                                <!-- Footer Success Toast Component -->
+                                <c:Toast componentId="footerSuccessToast" type="success" />
+                                
+                                <!-- Footer Error Toast Component -->
+                                <c:Toast componentId="footerErrorToast" type="error" />
+                                
+                                <!-- Footer Warning Toast Component -->
+                                <c:Toast componentId="footerWarningToast" type="warning" />
+                                
+                                <!-- Submit Button -->
+                                <div class="slds-card__footer">
+                                    <a class="slds-card__footer-action">
+                                        <div class="slds-button slds-align--absolute-center">
+                                            <button type="button" class="slds-button slds-button_brand" onclick="submitForm();">Submit</button>
+                                            <button type="button" class="slds-button slds-button_brand" onclick="window.location.href = window.location.href;">Cancel</button>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Space -->
+                        <div class="slds-col slds-size_2-of-12"></div>
+                    </div>
+                </div>
+            </apex:form>
+            <!-- Include Angular Resources  -->
+            <apex:includeScript value="{!URLFOR($Resource.AngularJs,'')}"/>
+        </body>
+    </html>
+    
+</apex:page>

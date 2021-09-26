@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>this mdt will be used to store all campaigns and its related vf version</description>
+    <fields>
+        <fullName>Campaign_Name__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Please enter the correct Campaign Name. [Hint : copy and paste the campaign name and remove whitespaces]</inlineHelpText>
+        <label>Campaign Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Page_Version__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <inlineHelpText>Page version has to be matched with the site-visualforce page version to capture correct campaign</inlineHelpText>
+        <label>Page Version</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>V1</fullName>
+                    <default>true</default>
+                    <label>V1</label>
+                </value>
+                <value>
+                    <fullName>V2</fullName>
+                    <default>false</default>
+                    <label>V2</label>
+                </value>
+                <value>
+                    <fullName>V3</fullName>
+                    <default>false</default>
+                    <label>V3</label>
+                </value>
+                <value>
+                    <fullName>V4</fullName>
+                    <default>false</default>
+                    <label>V4</label>
+                </value>
+                <value>
+                    <fullName>V5</fullName>
+                    <default>false</default>
+                    <label>V5</label>
+                </value>
+                <value>
+                    <fullName>V6</fullName>
+                    <default>false</default>
+                    <label>V6</label>
+                </value>
+                <value>
+                    <fullName>V7</fullName>
+                    <default>false</default>
+                    <label>V7</label>
+                </value>
+                <value>
+                    <fullName>V8</fullName>
+                    <default>false</default>
+                    <label>V8</label>
+                </value>
+                <value>
+                    <fullName>V9</fullName>
+                    <default>false</default>
+                    <label>V9</label>
+                </value>
+                <value>
+                    <fullName>V10</fullName>
+                    <default>false</default>
+                    <label>V10</label>
+                </value>
+                <value>
+                    <fullName>V100</fullName>
+                    <default>false</default>
+                    <label>V100</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Campaign List</label>
+    <pluralLabel>Campaign Lists</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

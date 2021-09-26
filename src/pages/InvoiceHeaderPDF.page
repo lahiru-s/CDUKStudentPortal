@@ -1,0 +1,321 @@
+<!--
+
+Created By :- Arulmozhi.R
+Description:- This VF Page is displayed when the User Clicks on Generate Invoice Button
+
+-->
+
+<apex:page renderAs="pdf" standardController="Invoice_Header__c" standardStylesheets="false" showHeader="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+    <html>
+        <head>
+            <title></title>
+            <style type="text/css" media="print">
+                @page {
+                    @top-center {
+                        content: element(header);
+                    }
+                    
+                    @bottom-left {
+                        content: element(footer);
+                    }
+                }
+                
+                div.header {
+                    padding: 10px;
+                    position: running(header);
+                }
+                
+                div.footer {
+                    display: block;
+                    position: running(footer);
+                    color: white;
+                    background-color: rgb(25, 85, 167);
+                }
+            </style>
+        </head>
+        <body>
+            <!--Header-->
+            <div class="header">
+                <!--INSERT HEADER IF NEEDED-->
+            </div>
+            
+            <!--Footer-->
+            <div class="footer">
+                <table width="100%">
+                    <tr>
+                        <td colspan="4" align="center" style="font-family: sans-serif; font-size: 13px; font-weight: bold">
+                            <apex:outputText value="{!Invoice_Header__c.Address_of_Company__c}" escape="false"></apex:outputText>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" width="25%" style="font-family: sans-serif; font-size: 13px; font-weight: bold">T +94 (0) 114 545 055</td>
+                        <td align="center" width="25%" style="font-family: sans-serif; font-size: 13px; font-weight: bold">+94 (0) 114 545 056</td>
+                        <td align="center" width="25%" style="font-family: sans-serif; font-size: 13px; font-weight: bold">F +94 (0) 112 68 27 27</td>
+                        <td align="center" width="25%" style="font-family: sans-serif; font-size: 13px; font-weight: bold">www.cduk.lk</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!--Content-->
+            <div class="content">
+                <!--Page Header-->
+                <table width="100%">
+                    <tr>
+                        <td width="50%"></td>
+                        <td align="right">
+                            <img src="https://campusdirect--dev--c.cs31.visual.force.com/resource/CampusDirect" height="auto" width="250px"/>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!--Attention + Date-->
+                <table width="100%" style="margin-top: 20px">
+                    <tr>
+                        <td width="80%" style="font-family: sans-serif; font-size: 13px">
+                            
+                            <apex:outputText rendered="{!Invoice_Header__c.Invoice_for_University__c}" value="Attention:" escape="false"></apex:outputText> <apex:outputText value="{!Invoice_Header__c.University__r.AttentionName__c}" escape="false"></apex:outputText>
+                            <apex:outputText value="{!Invoice_Header__c.University__r.AttentionAddress__c}" escape="false"></apex:outputText>
+                        </td>
+                        <td align="right" style="font-family: sans-serif; font-size: 13px">
+                            Date: {!MONTH(TODAY())}/{!DAY(TODAY())}/{!YEAR(TODAY())}
+                        </td>
+                    </tr>
+                </table>
+                
+                <!--Summary-->
+                <table style="margin-top: 20px">
+                    <tr>
+                        <td width="30%" style="font-family: sans-serif; font-size: 13px">
+                            Subject
+                        </td>
+                        <td style="font-family: sans-serif; font-size: 13px; font-weight: bold">
+                            : {!Invoice_Header__c.Subject__c}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="30%" style="font-family: sans-serif; font-size: 13px">
+                            Invoice No
+                        </td>
+                        <td style="font-family: sans-serif; font-size: 13px; font-weight: bold">
+                            : {!Invoice_Header__c.Name}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="30%" style="font-family: sans-serif; font-size: 13px">
+                            Name of Company
+                        </td>
+                        <td style="font-family: sans-serif; font-size: 13px; font-weight: bold">
+                            : {!Invoice_Header__c.Name_of_Company__c}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="30%" style="font-family: sans-serif; font-size: 13px">
+                            Address of Company
+                        </td>
+                        <td style="font-family: sans-serif; font-size: 13px; font-weight: bold">
+                            : {!Invoice_Header__c.Address_of_Company__c}
+                        </td>
+                    </tr>
+                    <apex:outputPanel layout="none" rendered="{!Invoice_Header__c.University__r.Commision_Rate_Type__c == 'Percentage'}">
+                        <tr>
+                            <td width="30%" style="font-family: sans-serif; font-size: 13px">
+                                University Name
+                            </td>
+                            <td style="font-family: sans-serif; font-size: 13px; font-weight: bold">
+                                : {!Invoice_Header__c.University__r.Name}
+                            </td>
+                        </tr>
+                    </apex:outputPanel>
+                </table>
+                
+                <!--Invoice Line Items-->
+                
+                <!--Invoice Line Items when Invoice_for_University__c is TRUE-->
+                <apex:outputPanel layout="none" rendered="{!Invoice_Header__c.Invoice_for_University__c}">
+                    <table width="100%" style="margin-top: 30px; border-collapse: collapse" cellpadding="5px">
+                        <thead>
+                            <tr>
+                                <th style="font-family: sans-serif; font-size: 13px; border: 1px solid black">Student Name</th>
+                                <th style="font-family: sans-serif; font-size: 13px; border: 1px solid black">Fees</th>
+                                <th style="font-family: sans-serif; font-size: 13px; border: 1px solid black">Scholarship</th>
+                                <th style="font-family: sans-serif; font-size: 13px; border: 1px solid black">Percentage/Flat Rate</th>
+                                <th style="font-family: sans-serif; font-size: 13px; border: 1px solid black">Net Payable Commission</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--Additions-->
+                            <apex:repeat value="{!Invoice_Header__c.Invoice_Items__r}" var="item">
+                                <apex:outputPanel layout="none" rendered="{!item.Invoice_Item_Type__c == 'Addition'}">
+                                    <tr>
+                                        <td width="30%" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputText value="{!item.Description__c}" escape="false"></apex:outputText><br/>
+                                            Course Name:- <apex:outputText value="{!item.Course__c}" escape="false"></apex:outputText>
+                                        </td>
+                                        <td width="14%" align="right" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputPanel rendered="{!NOT(ISBLANK(item.Fee__c))}" layout="none">({!Invoice_Header__c.Currency_Type__c})</apex:outputPanel>&nbsp;
+                                            <apex:outputText value="{!item.Fee__c}" escape="false"></apex:outputText>
+                                        </td>
+                                        <td width="14%" align="right" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputText value="{!item.Scholarship__c}" escape="false"></apex:outputText>
+                                        </td>
+                                        <td width="14%" align="right" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputText value="{!item.Rate__c}" escape="false"></apex:outputText>
+                                        </td>
+                                        <td width="14%" align="right" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputPanel rendered="{!NOT(ISBLANK(item.Net_Amount__c))}" layout="none">({!Invoice_Header__c.Currency_Type__c})</apex:outputPanel>&nbsp;
+                                            <apex:outputText value="{!item.Net_Amount__c}" escape="false"></apex:outputText>
+                                        </td>
+                                    </tr>
+                                </apex:outputPanel>
+                            </apex:repeat>
+                            
+                            <!--Deductions-->
+                            <apex:repeat value="{!Invoice_Header__c.Invoice_Items__r}" var="item">
+                                <apex:outputPanel layout="none" rendered="{!item.Invoice_Item_Type__c == 'Deduction'}">
+                                    <tr>
+                                        <td width="30%" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputText value="{!item.Description__c}" escape="false"></apex:outputText>
+                                            <apex:outputText value="{!item.Course__c}" escape="false"></apex:outputText>                                            
+                                        </td>
+                                        <td width="14%" align="right" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputPanel rendered="{!NOT(ISBLANK(item.Fee__c))}" layout="none">({!Invoice_Header__c.Currency_Type__c})</apex:outputPanel>&nbsp;
+                                            <apex:outputText value="{!item.Fee__c}" escape="false"></apex:outputText>
+                                        </td>
+                                        <td width="14%" align="right" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputText value="{!item.Scholarship__c}" escape="false"></apex:outputText>
+                                        </td>
+                                        <td width="14%" align="right" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputText value="{!item.Rate__c}" escape="false"></apex:outputText>
+                                        </td>
+                                        <td width="14%" align="right" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputPanel rendered="{!NOT(ISBLANK(item.Net_Amount__c))}" layout="none">({!Invoice_Header__c.Currency_Type__c})</apex:outputPanel>&nbsp;
+                                            <apex:outputText value="{!item.Net_Amount__c}" escape="false"></apex:outputText>
+                                        </td>
+                                    </tr>
+                                </apex:outputPanel>
+                            </apex:repeat>
+                            
+                            <tr>
+                                <td width="75%" style="font-family: sans-serif; font-size: 13px; border: 1px solid black" colspan="4">
+                                            <apex:outputText value="Total" escape="false"></apex:outputText>
+                                        </td>
+                                       
+                                        <td width="25%" align="right" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputText value="{!Invoice_Header__c.Net_Invoice_Amount__c}" escape="false"></apex:outputText>
+                                        </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </apex:outputPanel>
+                
+                <!--Invoice Line Items when Invoice_for_University__c is FALSE-->
+                <apex:outputPanel layout="none" rendered="{!NOT(Invoice_Header__c.Invoice_for_University__c)}">
+                    <table width="100%" style="margin-top: 30px; border-collapse: collapse" cellpadding="5px">
+                        <thead>
+                            <tr>
+                                <th style="font-family: sans-serif; font-size: 13px; border: 1px solid black">Description</th>
+                                <th style="font-family: sans-serif; font-size: 13px; border: 1px solid black">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--Additions-->
+                            <apex:repeat value="{!Invoice_Header__c.Invoice_Items__r}" var="item">
+                                <apex:outputPanel layout="none" rendered="{!item.Invoice_Item_Type__c == 'Addition'}">
+                                    <tr>
+                                        <td width="75%" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputText value="{!item.Description__c}" escape="false"></apex:outputText>
+                                        </td>
+                                        <td width="25%" align="right" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputText value="{!item.Net_Amount__c}" escape="false"></apex:outputText>
+                                        </td>
+                                    </tr>
+                                </apex:outputPanel>
+                            </apex:repeat>
+                            
+                            <!--Deductions-->
+                            <apex:repeat value="{!Invoice_Header__c.Invoice_Items__r}" var="item">
+                                <apex:outputPanel layout="none" rendered="{!item.Invoice_Item_Type__c == 'Deduction'}">
+                                    <tr>
+                                        <td width="75%" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputText value="{!item.Description__c}" escape="false"></apex:outputText>
+                                        </td>
+                                        <td width="25%" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputText value="{!item.Net_Amount__c}" escape="false"></apex:outputText>
+                                        </td>
+                                    </tr>
+                                </apex:outputPanel>
+                            </apex:repeat>
+                            
+                            <tr>
+                                <td width="75%" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputText value="Total" escape="false"></apex:outputText>
+                                        </td>
+                                        <td width="25%" align="right" style="font-family: sans-serif; font-size: 13px; border: 1px solid black">
+                                            <apex:outputText value="{!Invoice_Header__c.Net_Invoice_Amount__c}" escape="false"></apex:outputText>
+                                        </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </apex:outputPanel>
+                
+                <!--Bank Details + Signature-->
+                <div style="font-family: sans-serif; font-size: 13px; margin-top: 10px">
+                   <apex:outputpanel rendered="{!Invoice_Header__c.Invoice_for_University__c}">
+                    <table width="100%">
+                        <tr>
+                            <td colspan="2" style="font-family: sans-serif; font-size: 12px; border-bottom: 1px solid #f3f2f2">
+                                <em>Bank Details</em>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ACCOUNT NO</td>
+                            <td>: <strong><apex:outputText value="{!Invoice_Header__c.Account_No__c}" escape="false"></apex:outputText></strong></td>
+                        </tr>
+                        <tr>
+                            <td>BANK NAME</td>
+                            <td>: <strong><apex:outputText value="{!Invoice_Header__c.Bank_Name__c}" escape="false"></apex:outputText></strong></td>
+                        </tr>
+                        <tr>
+                            <td>ACCOUNT NAME</td>
+                            <td>: <strong><apex:outputText value="{!Invoice_Header__c.Account_Name__c}" escape="false"></apex:outputText></strong></td>
+                        </tr>
+                        <tr>
+                            <td>BANK ADDRESS</td>
+                            <td>: <strong><apex:outputText value="{!Invoice_Header__c.Bank_Address__c}" escape="false"></apex:outputText></strong></td>
+                        </tr>
+                        <tr>
+                            <td>SWIFT CODE</td>
+                            <td>: <strong><apex:outputText value="{!Invoice_Header__c.Swift_Code__c}" escape="false"></apex:outputText></strong></td>
+                        </tr>
+                        <tr>
+                            <td>CURRENCY TYPE</td>
+                            <td>: <strong><apex:outputText value="{!Invoice_Header__c.Currency_Type_F__c}" escape="false"></apex:outputText></strong></td>
+                        </tr>
+                    </table>
+                    </apex:outputpanel>
+                    
+                    <div style="margin-top: 25px; margin-bottom: 100px">
+                        <em>Yours Faithfully</em>,<br/>
+                        Campus Direct UK (Pvt) Ltd
+                    </div>
+                    
+                    <!--Signature-->
+                    <apex:outputpanel rendered="{!Invoice_Header__c.Invoice_for_University__c}">
+                    
+                    <div>
+                        Suresh Gunasekera<br/>
+                        <strong>Director Operations and Finance</strong>
+                    </div>
+                    </apex:outputpanel>
+                    
+                    <apex:outputpanel rendered="{!NOT(Invoice_Header__c.Invoice_for_University__c)}">
+                        <div>
+                        
+                        <strong>............................................</strong>
+                    </div>
+                        </apex:outputpanel>
+                </div>
+            </div>
+        </body>
+    </html>
+</apex:page>

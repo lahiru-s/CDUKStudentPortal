@@ -1,0 +1,10 @@
+<apex:page controller="FacebookLeadRunController" lightningStylesheets="true" showHeader="true" sidebar="true">
+  <apex:form >
+      
+      <apex:commandButton value="Fetch FB Leads" action="{!fetchFBLead}"/>
+      <br/>
+      <a href="https://campusdirect--dev--c.cs31.visual.force.com/apex/WebToLeadForm" target="_blank">Web To Lead</a>
+           <br/>
+      <a href="https://campusdirect--dev--c.cs31.visual.force.com/apex/StudentApplicationForm" target="_blank">Student Applications Form</a>
+  </apex:form>
+</apex:page>

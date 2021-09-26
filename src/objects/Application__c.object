@@ -1,0 +1,2074 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Application_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Accepted_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Accepted date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Application_Sent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Application Sent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Applied_Via__c</fullName>
+        <description>Please select the agency where the application has been submitted</description>
+        <externalId>false</externalId>
+        <label>Applied Via</label>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Campus Direct</fullName>
+                    <default>true</default>
+                    <label>Campus Direct</label>
+                </value>
+                <value>
+                    <fullName>OEC</fullName>
+                    <default>false</default>
+                    <label>OEC</label>
+                </value>
+                <value>
+                    <fullName>SIUK</fullName>
+                    <default>false</default>
+                    <label>SIUK</label>
+                </value>
+                <value>
+                    <fullName>Admissions Overseas</fullName>
+                    <default>false</default>
+                    <label>Admissions Overseas</label>
+                </value>
+                <value>
+                    <fullName>Gateway Abroad</fullName>
+                    <default>false</default>
+                    <label>Gateway Abroad</label>
+                </value>
+                <value>
+                    <fullName>Emergence</fullName>
+                    <default>false</default>
+                    <label>Emergence</label>
+                </value>
+                <value>
+                    <fullName>Education First</fullName>
+                    <default>false</default>
+                    <label>Education First</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Cleared_or_Rejected__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( Status__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Cleared or Rejected</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Course_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Course Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Currency_Type_F__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT (Preferred_University__r.Currency_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Currency Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Currency_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Currency Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AFN</fullName>
+                    <default>false</default>
+                    <label>AFN</label>
+                </value>
+                <value>
+                    <fullName>ALL</fullName>
+                    <default>false</default>
+                    <label>ALL</label>
+                </value>
+                <value>
+                    <fullName>AMD</fullName>
+                    <default>false</default>
+                    <label>AMD</label>
+                </value>
+                <value>
+                    <fullName>ANG</fullName>
+                    <default>false</default>
+                    <label>ANG</label>
+                </value>
+                <value>
+                    <fullName>AOA</fullName>
+                    <default>false</default>
+                    <label>AOA</label>
+                </value>
+                <value>
+                    <fullName>ARS</fullName>
+                    <default>false</default>
+                    <label>ARS</label>
+                </value>
+                <value>
+                    <fullName>AUD</fullName>
+                    <default>false</default>
+                    <label>AUD</label>
+                </value>
+                <value>
+                    <fullName>AWG</fullName>
+                    <default>false</default>
+                    <label>AWG</label>
+                </value>
+                <value>
+                    <fullName>AZN</fullName>
+                    <default>false</default>
+                    <label>AZN</label>
+                </value>
+                <value>
+                    <fullName>BAM</fullName>
+                    <default>false</default>
+                    <label>BAM</label>
+                </value>
+                <value>
+                    <fullName>BBD</fullName>
+                    <default>false</default>
+                    <label>BBD</label>
+                </value>
+                <value>
+                    <fullName>BDT</fullName>
+                    <default>false</default>
+                    <label>BDT</label>
+                </value>
+                <value>
+                    <fullName>BGN</fullName>
+                    <default>false</default>
+                    <label>BGN</label>
+                </value>
+                <value>
+                    <fullName>BHD</fullName>
+                    <default>false</default>
+                    <label>BHD</label>
+                </value>
+                <value>
+                    <fullName>BIF</fullName>
+                    <default>false</default>
+                    <label>BIF</label>
+                </value>
+                <value>
+                    <fullName>BMD</fullName>
+                    <default>false</default>
+                    <label>BMD</label>
+                </value>
+                <value>
+                    <fullName>BND</fullName>
+                    <default>false</default>
+                    <label>BND</label>
+                </value>
+                <value>
+                    <fullName>BOB</fullName>
+                    <default>false</default>
+                    <label>BOB</label>
+                </value>
+                <value>
+                    <fullName>BRL</fullName>
+                    <default>false</default>
+                    <label>BRL</label>
+                </value>
+                <value>
+                    <fullName>BSD</fullName>
+                    <default>false</default>
+                    <label>BSD</label>
+                </value>
+                <value>
+                    <fullName>BTN</fullName>
+                    <default>false</default>
+                    <label>BTN</label>
+                </value>
+                <value>
+                    <fullName>BWP</fullName>
+                    <default>false</default>
+                    <label>BWP</label>
+                </value>
+                <value>
+                    <fullName>BYN</fullName>
+                    <default>false</default>
+                    <label>BYN</label>
+                </value>
+                <value>
+                    <fullName>BZD</fullName>
+                    <default>false</default>
+                    <label>BZD</label>
+                </value>
+                <value>
+                    <fullName>CAD</fullName>
+                    <default>false</default>
+                    <label>CAD</label>
+                </value>
+                <value>
+                    <fullName>CDF</fullName>
+                    <default>false</default>
+                    <label>CDF</label>
+                </value>
+                <value>
+                    <fullName>CHF</fullName>
+                    <default>false</default>
+                    <label>CHF</label>
+                </value>
+                <value>
+                    <fullName>CLP</fullName>
+                    <default>false</default>
+                    <label>CLP</label>
+                </value>
+                <value>
+                    <fullName>CNY</fullName>
+                    <default>false</default>
+                    <label>CNY</label>
+                </value>
+                <value>
+                    <fullName>COP</fullName>
+                    <default>false</default>
+                    <label>COP</label>
+                </value>
+                <value>
+                    <fullName>CRC</fullName>
+                    <default>false</default>
+                    <label>CRC</label>
+                </value>
+                <value>
+                    <fullName>CUP</fullName>
+                    <default>false</default>
+                    <label>CUP</label>
+                </value>
+                <value>
+                    <fullName>CVE</fullName>
+                    <default>false</default>
+                    <label>CVE</label>
+                </value>
+                <value>
+                    <fullName>CZK</fullName>
+                    <default>false</default>
+                    <label>CZK</label>
+                </value>
+                <value>
+                    <fullName>DJF</fullName>
+                    <default>false</default>
+                    <label>DJF</label>
+                </value>
+                <value>
+                    <fullName>DKK</fullName>
+                    <default>false</default>
+                    <label>DKK</label>
+                </value>
+                <value>
+                    <fullName>DOP</fullName>
+                    <default>false</default>
+                    <label>DOP</label>
+                </value>
+                <value>
+                    <fullName>DZD</fullName>
+                    <default>false</default>
+                    <label>DZD</label>
+                </value>
+                <value>
+                    <fullName>EGP</fullName>
+                    <default>false</default>
+                    <label>EGP</label>
+                </value>
+                <value>
+                    <fullName>ERN</fullName>
+                    <default>false</default>
+                    <label>ERN</label>
+                </value>
+                <value>
+                    <fullName>ETB</fullName>
+                    <default>false</default>
+                    <label>ETB</label>
+                </value>
+                <value>
+                    <fullName>EUR</fullName>
+                    <default>false</default>
+                    <label>EUR</label>
+                </value>
+                <value>
+                    <fullName>FJD</fullName>
+                    <default>false</default>
+                    <label>FJD</label>
+                </value>
+                <value>
+                    <fullName>FKP</fullName>
+                    <default>false</default>
+                    <label>FKP</label>
+                </value>
+                <value>
+                    <fullName>GBP</fullName>
+                    <default>false</default>
+                    <label>GBP</label>
+                </value>
+                <value>
+                    <fullName>GEL</fullName>
+                    <default>false</default>
+                    <label>GEL</label>
+                </value>
+                <value>
+                    <fullName>GGP</fullName>
+                    <default>false</default>
+                    <label>GGP</label>
+                </value>
+                <value>
+                    <fullName>GHS</fullName>
+                    <default>false</default>
+                    <label>GHS</label>
+                </value>
+                <value>
+                    <fullName>GIP</fullName>
+                    <default>false</default>
+                    <label>GIP</label>
+                </value>
+                <value>
+                    <fullName>GMD</fullName>
+                    <default>false</default>
+                    <label>GMD</label>
+                </value>
+                <value>
+                    <fullName>GNF</fullName>
+                    <default>false</default>
+                    <label>GNF</label>
+                </value>
+                <value>
+                    <fullName>GTQ</fullName>
+                    <default>false</default>
+                    <label>GTQ</label>
+                </value>
+                <value>
+                    <fullName>GYD</fullName>
+                    <default>false</default>
+                    <label>GYD</label>
+                </value>
+                <value>
+                    <fullName>HKD</fullName>
+                    <default>false</default>
+                    <label>HKD</label>
+                </value>
+                <value>
+                    <fullName>HNL</fullName>
+                    <default>false</default>
+                    <label>HNL</label>
+                </value>
+                <value>
+                    <fullName>HRK</fullName>
+                    <default>false</default>
+                    <label>HRK</label>
+                </value>
+                <value>
+                    <fullName>HTG</fullName>
+                    <default>false</default>
+                    <label>HTG</label>
+                </value>
+                <value>
+                    <fullName>HUF</fullName>
+                    <default>false</default>
+                    <label>HUF</label>
+                </value>
+                <value>
+                    <fullName>IDR</fullName>
+                    <default>false</default>
+                    <label>IDR</label>
+                </value>
+                <value>
+                    <fullName>ILS</fullName>
+                    <default>false</default>
+                    <label>ILS</label>
+                </value>
+                <value>
+                    <fullName>IMP</fullName>
+                    <default>false</default>
+                    <label>IMP</label>
+                </value>
+                <value>
+                    <fullName>INR</fullName>
+                    <default>false</default>
+                    <label>INR</label>
+                </value>
+                <value>
+                    <fullName>IQD</fullName>
+                    <default>false</default>
+                    <label>IQD</label>
+                </value>
+                <value>
+                    <fullName>IRR</fullName>
+                    <default>false</default>
+                    <label>IRR</label>
+                </value>
+                <value>
+                    <fullName>ISK</fullName>
+                    <default>false</default>
+                    <label>ISK</label>
+                </value>
+                <value>
+                    <fullName>JEP</fullName>
+                    <default>false</default>
+                    <label>JEP</label>
+                </value>
+                <value>
+                    <fullName>JMD</fullName>
+                    <default>false</default>
+                    <label>JMD</label>
+                </value>
+                <value>
+                    <fullName>JOD</fullName>
+                    <default>false</default>
+                    <label>JOD</label>
+                </value>
+                <value>
+                    <fullName>JPY</fullName>
+                    <default>false</default>
+                    <label>JPY</label>
+                </value>
+                <value>
+                    <fullName>KES</fullName>
+                    <default>false</default>
+                    <label>KES</label>
+                </value>
+                <value>
+                    <fullName>KGS</fullName>
+                    <default>false</default>
+                    <label>KGS</label>
+                </value>
+                <value>
+                    <fullName>KHR</fullName>
+                    <default>false</default>
+                    <label>KHR</label>
+                </value>
+                <value>
+                    <fullName>KMF</fullName>
+                    <default>false</default>
+                    <label>KMF</label>
+                </value>
+                <value>
+                    <fullName>KPW</fullName>
+                    <default>false</default>
+                    <label>KPW</label>
+                </value>
+                <value>
+                    <fullName>KRW</fullName>
+                    <default>false</default>
+                    <label>KRW</label>
+                </value>
+                <value>
+                    <fullName>KWD</fullName>
+                    <default>false</default>
+                    <label>KWD</label>
+                </value>
+                <value>
+                    <fullName>KYD</fullName>
+                    <default>false</default>
+                    <label>KYD</label>
+                </value>
+                <value>
+                    <fullName>KZT</fullName>
+                    <default>false</default>
+                    <label>KZT</label>
+                </value>
+                <value>
+                    <fullName>LAK</fullName>
+                    <default>false</default>
+                    <label>LAK</label>
+                </value>
+                <value>
+                    <fullName>LBP</fullName>
+                    <default>false</default>
+                    <label>LBP</label>
+                </value>
+                <value>
+                    <fullName>LKR</fullName>
+                    <default>false</default>
+                    <label>LKR</label>
+                </value>
+                <value>
+                    <fullName>LRD</fullName>
+                    <default>false</default>
+                    <label>LRD</label>
+                </value>
+                <value>
+                    <fullName>LSL</fullName>
+                    <default>false</default>
+                    <label>LSL</label>
+                </value>
+                <value>
+                    <fullName>LYD</fullName>
+                    <default>false</default>
+                    <label>LYD</label>
+                </value>
+                <value>
+                    <fullName>MAD</fullName>
+                    <default>false</default>
+                    <label>MAD</label>
+                </value>
+                <value>
+                    <fullName>MDL</fullName>
+                    <default>false</default>
+                    <label>MDL</label>
+                </value>
+                <value>
+                    <fullName>MGA</fullName>
+                    <default>false</default>
+                    <label>MGA</label>
+                </value>
+                <value>
+                    <fullName>MKD</fullName>
+                    <default>false</default>
+                    <label>MKD</label>
+                </value>
+                <value>
+                    <fullName>MMK</fullName>
+                    <default>false</default>
+                    <label>MMK</label>
+                </value>
+                <value>
+                    <fullName>MNT</fullName>
+                    <default>false</default>
+                    <label>MNT</label>
+                </value>
+                <value>
+                    <fullName>MOP</fullName>
+                    <default>false</default>
+                    <label>MOP</label>
+                </value>
+                <value>
+                    <fullName>MRU</fullName>
+                    <default>false</default>
+                    <label>MRU</label>
+                </value>
+                <value>
+                    <fullName>MUR</fullName>
+                    <default>false</default>
+                    <label>MUR</label>
+                </value>
+                <value>
+                    <fullName>MVR</fullName>
+                    <default>false</default>
+                    <label>MVR</label>
+                </value>
+                <value>
+                    <fullName>MWK</fullName>
+                    <default>false</default>
+                    <label>MWK</label>
+                </value>
+                <value>
+                    <fullName>MXN</fullName>
+                    <default>false</default>
+                    <label>MXN</label>
+                </value>
+                <value>
+                    <fullName>MYR</fullName>
+                    <default>false</default>
+                    <label>MYR</label>
+                </value>
+                <value>
+                    <fullName>MZN</fullName>
+                    <default>false</default>
+                    <label>MZN</label>
+                </value>
+                <value>
+                    <fullName>NAD</fullName>
+                    <default>false</default>
+                    <label>NAD</label>
+                </value>
+                <value>
+                    <fullName>NGN</fullName>
+                    <default>false</default>
+                    <label>NGN</label>
+                </value>
+                <value>
+                    <fullName>NIO</fullName>
+                    <default>false</default>
+                    <label>NIO</label>
+                </value>
+                <value>
+                    <fullName>NOK</fullName>
+                    <default>false</default>
+                    <label>NOK</label>
+                </value>
+                <value>
+                    <fullName>NPR</fullName>
+                    <default>false</default>
+                    <label>NPR</label>
+                </value>
+                <value>
+                    <fullName>NZD</fullName>
+                    <default>false</default>
+                    <label>NZD</label>
+                </value>
+                <value>
+                    <fullName>OMR</fullName>
+                    <default>false</default>
+                    <label>OMR</label>
+                </value>
+                <value>
+                    <fullName>PEN</fullName>
+                    <default>false</default>
+                    <label>PEN</label>
+                </value>
+                <value>
+                    <fullName>PGK</fullName>
+                    <default>false</default>
+                    <label>PGK</label>
+                </value>
+                <value>
+                    <fullName>PHP</fullName>
+                    <default>false</default>
+                    <label>PHP</label>
+                </value>
+                <value>
+                    <fullName>PKR</fullName>
+                    <default>false</default>
+                    <label>PKR</label>
+                </value>
+                <value>
+                    <fullName>PLN</fullName>
+                    <default>false</default>
+                    <label>PLN</label>
+                </value>
+                <value>
+                    <fullName>PYG</fullName>
+                    <default>false</default>
+                    <label>PYG</label>
+                </value>
+                <value>
+                    <fullName>QAR</fullName>
+                    <default>false</default>
+                    <label>QAR</label>
+                </value>
+                <value>
+                    <fullName>RON</fullName>
+                    <default>false</default>
+                    <label>RON</label>
+                </value>
+                <value>
+                    <fullName>RSD</fullName>
+                    <default>false</default>
+                    <label>RSD</label>
+                </value>
+                <value>
+                    <fullName>RUB</fullName>
+                    <default>false</default>
+                    <label>RUB</label>
+                </value>
+                <value>
+                    <fullName>RWF</fullName>
+                    <default>false</default>
+                    <label>RWF</label>
+                </value>
+                <value>
+                    <fullName>SAR</fullName>
+                    <default>false</default>
+                    <label>SAR</label>
+                </value>
+                <value>
+                    <fullName>SBD</fullName>
+                    <default>false</default>
+                    <label>SBD</label>
+                </value>
+                <value>
+                    <fullName>SCR</fullName>
+                    <default>false</default>
+                    <label>SCR</label>
+                </value>
+                <value>
+                    <fullName>SDG</fullName>
+                    <default>false</default>
+                    <label>SDG</label>
+                </value>
+                <value>
+                    <fullName>SEK</fullName>
+                    <default>false</default>
+                    <label>SEK</label>
+                </value>
+                <value>
+                    <fullName>SGD</fullName>
+                    <default>false</default>
+                    <label>SGD</label>
+                </value>
+                <value>
+                    <fullName>SHP</fullName>
+                    <default>false</default>
+                    <label>SHP</label>
+                </value>
+                <value>
+                    <fullName>SLL</fullName>
+                    <default>false</default>
+                    <label>SLL</label>
+                </value>
+                <value>
+                    <fullName>SOS</fullName>
+                    <default>false</default>
+                    <label>SOS</label>
+                </value>
+                <value>
+                    <fullName>SRD</fullName>
+                    <default>false</default>
+                    <label>SRD</label>
+                </value>
+                <value>
+                    <fullName>SSP</fullName>
+                    <default>false</default>
+                    <label>SSP</label>
+                </value>
+                <value>
+                    <fullName>STN</fullName>
+                    <default>false</default>
+                    <label>STN</label>
+                </value>
+                <value>
+                    <fullName>SYP</fullName>
+                    <default>false</default>
+                    <label>SYP</label>
+                </value>
+                <value>
+                    <fullName>SZL</fullName>
+                    <default>false</default>
+                    <label>SZL</label>
+                </value>
+                <value>
+                    <fullName>THB</fullName>
+                    <default>false</default>
+                    <label>THB</label>
+                </value>
+                <value>
+                    <fullName>TJS</fullName>
+                    <default>false</default>
+                    <label>TJS</label>
+                </value>
+                <value>
+                    <fullName>TMT</fullName>
+                    <default>false</default>
+                    <label>TMT</label>
+                </value>
+                <value>
+                    <fullName>TND</fullName>
+                    <default>false</default>
+                    <label>TND</label>
+                </value>
+                <value>
+                    <fullName>TOP</fullName>
+                    <default>false</default>
+                    <label>TOP</label>
+                </value>
+                <value>
+                    <fullName>TRY</fullName>
+                    <default>false</default>
+                    <label>TRY</label>
+                </value>
+                <value>
+                    <fullName>TTD</fullName>
+                    <default>false</default>
+                    <label>TTD</label>
+                </value>
+                <value>
+                    <fullName>TWD</fullName>
+                    <default>false</default>
+                    <label>TWD</label>
+                </value>
+                <value>
+                    <fullName>TZS</fullName>
+                    <default>false</default>
+                    <label>TZS</label>
+                </value>
+                <value>
+                    <fullName>UAH</fullName>
+                    <default>false</default>
+                    <label>UAH</label>
+                </value>
+                <value>
+                    <fullName>UGX</fullName>
+                    <default>false</default>
+                    <label>UGX</label>
+                </value>
+                <value>
+                    <fullName>USD</fullName>
+                    <default>false</default>
+                    <label>USD</label>
+                </value>
+                <value>
+                    <fullName>UYU</fullName>
+                    <default>false</default>
+                    <label>UYU</label>
+                </value>
+                <value>
+                    <fullName>UZS</fullName>
+                    <default>false</default>
+                    <label>UZS</label>
+                </value>
+                <value>
+                    <fullName>VES</fullName>
+                    <default>false</default>
+                    <label>VES</label>
+                </value>
+                <value>
+                    <fullName>VND</fullName>
+                    <default>false</default>
+                    <label>VND</label>
+                </value>
+                <value>
+                    <fullName>VUV</fullName>
+                    <default>false</default>
+                    <label>VUV</label>
+                </value>
+                <value>
+                    <fullName>WST</fullName>
+                    <default>false</default>
+                    <label>WST</label>
+                </value>
+                <value>
+                    <fullName>XAF</fullName>
+                    <default>false</default>
+                    <label>XAF</label>
+                </value>
+                <value>
+                    <fullName>XCD</fullName>
+                    <default>false</default>
+                    <label>XCD</label>
+                </value>
+                <value>
+                    <fullName>XDR</fullName>
+                    <default>false</default>
+                    <label>XDR</label>
+                </value>
+                <value>
+                    <fullName>XOF</fullName>
+                    <default>false</default>
+                    <label>XOF</label>
+                </value>
+                <value>
+                    <fullName>XPF</fullName>
+                    <default>false</default>
+                    <label>XPF</label>
+                </value>
+                <value>
+                    <fullName>YER</fullName>
+                    <default>false</default>
+                    <label>YER</label>
+                </value>
+                <value>
+                    <fullName>ZAR</fullName>
+                    <default>false</default>
+                    <label>ZAR</label>
+                </value>
+                <value>
+                    <fullName>ZMW</fullName>
+                    <default>false</default>
+                    <label>ZMW</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Full_Course_fees_Annual__c</fullName>
+        <externalId>false</externalId>
+        <label>Course Fees (Annual)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Further_Document_submitted_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Further Document submitted date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Health_Cover_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Student__r.Industry)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Health Cover Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Initial_Pre_Paid_Tuition_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Initial Pre-Paid Tuition Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Institution_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Campus Location</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Intake_Month__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(MONTH( Program_Start_date__c ), 
+1, &quot;January&quot;, 
+2, &quot;February&quot;, 
+3, &quot;March&quot;,  
+4, &quot;April&quot;,  
+5, &quot;May&quot;,  
+6, &quot;June&quot;, 
+7, &quot;July&quot;, 
+8, &quot;August&quot;, 
+9, &quot;September&quot;, 
+10, &quot;October&quot;,
+11, &quot;November&quot;, 
+12, &quot;December&quot;, 
+&quot;None&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Intake Month</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Intake_Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(YEAR( Program_Start_date__c ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Intake Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Conditions_Met__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Conditions met</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Minimum_amount_to_pay__c</fullName>
+        <externalId>false</externalId>
+        <label>Minimum amount to pay</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Next_offer__c</fullName>
+        <externalId>false</externalId>
+        <label>Offer Number</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Package_Offer__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Offer 01</fullName>
+                    <default>false</default>
+                    <label>Offer 01</label>
+                </value>
+                <value>
+                    <fullName>Offer 02</fullName>
+                    <default>false</default>
+                    <label>Offer 02</label>
+                </value>
+                <value>
+                    <fullName>Offer 03</fullName>
+                    <default>false</default>
+                    <label>Offer 03</label>
+                </value>
+                <value>
+                    <fullName>Offer 04</fullName>
+                    <default>false</default>
+                    <label>Offer 04</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Offer 01</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Offer 02</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Offer 03</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Offer 04</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Offer_Conditions__c</fullName>
+        <externalId>false</externalId>
+        <label>Offer Conditions</label>
+        <length>131072</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Offer_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Offer Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Unconditional</fullName>
+                    <default>false</default>
+                    <label>Unconditional</label>
+                </value>
+                <value>
+                    <fullName>Conditional</fullName>
+                    <default>false</default>
+                    <label>Conditional</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Orientation_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Orientation date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Other_Pre_Paid_Non_Tuition_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Pre-Paid Non-Tuition Fee:</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Package_Offer__c</fullName>
+        <externalId>false</externalId>
+        <label>Package Offer</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Preferred_University__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Preferred University</label>
+        <referenceTo>University__c</referenceTo>
+        <relationshipLabel>Applications</relationshipLabel>
+        <relationshipName>Applications</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Previous_Offer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Previous Offer</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Student of the offers are not matched</errorMessage>
+            <filterItems>
+                <field>$Source.Student__c</field>
+                <operation>equals</operation>
+                <valueField>Application__c.Student__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Application__c</referenceTo>
+        <relationshipLabel>Applications</relationshipLabel>
+        <relationshipName>Applications</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Program_Start_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Program Start date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Program_end_date__c</fullName>
+        <externalId>false</externalId>
+        <label>Program end date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Scholarship__c</fullName>
+        <externalId>false</externalId>
+        <label>Scholarship</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Shared_with_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Shared with</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Applications1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Shared_with__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Shared with</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Applications</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status_Prior_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Status Prior Value</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>New</fullName>
+                    <default>true</default>
+                    <label>New</label>
+                </value>
+                <value>
+                    <fullName>Documents Received</fullName>
+                    <default>false</default>
+                    <label>Documents Received</label>
+                </value>
+                <value>
+                    <fullName>Application Submitted</fullName>
+                    <default>false</default>
+                    <label>Application Submitted</label>
+                </value>
+                <value>
+                    <fullName>Further Information Requested</fullName>
+                    <default>false</default>
+                    <label>Further Information Requested</label>
+                </value>
+                <value>
+                    <fullName>Offer Received</fullName>
+                    <default>false</default>
+                    <label>Offer Received</label>
+                </value>
+                <value>
+                    <fullName>Undecided</fullName>
+                    <default>false</default>
+                    <label>Undecided</label>
+                </value>
+                <value>
+                    <fullName>Offer Accepted</fullName>
+                    <default>false</default>
+                    <label>Offer Accepted</label>
+                </value>
+                <value>
+                    <fullName>Offer Rejected</fullName>
+                    <default>false</default>
+                    <label>Offer Rejected</label>
+                </value>
+                <value>
+                    <fullName>Withdrawn by student</fullName>
+                    <default>false</default>
+                    <label>Withdrawn by student</label>
+                </value>
+                <value>
+                    <fullName>Payment Made</fullName>
+                    <default>false</default>
+                    <label>Payment Made</label>
+                </value>
+                <value>
+                    <fullName>COE/CAS Received</fullName>
+                    <default>false</default>
+                    <label>COE/CAS Received</label>
+                </value>
+                <value>
+                    <fullName>COE/CAS Rejected</fullName>
+                    <default>false</default>
+                    <label>COE/CAS Rejected</label>
+                </value>
+                <value>
+                    <fullName>Visa Applied</fullName>
+                    <default>false</default>
+                    <label>Visa Applied</label>
+                </value>
+                <value>
+                    <fullName>Visa Granted</fullName>
+                    <default>false</default>
+                    <label>Visa Granted</label>
+                </value>
+                <value>
+                    <fullName>Visa Rejected</fullName>
+                    <default>false</default>
+                    <label>Visa Rejected</label>
+                </value>
+                <value>
+                    <fullName>Visa Withdraw</fullName>
+                    <default>false</default>
+                    <label>Visa Withdraw</label>
+                </value>
+                <value>
+                    <fullName>Withdrawn by the University</fullName>
+                    <default>false</default>
+                    <label>Withdrawn by the University</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Student_Email_Address__c</fullName>
+        <description>It Stores the Student Email Value</description>
+        <externalId>false</externalId>
+        <label>Student Email Address</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Student_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Student ID</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Student__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Student</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Applications</relationshipLabel>
+        <relationshipName>Applications</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Total_Amount_paid__c</fullName>
+        <externalId>false</externalId>
+        <label>Course Fees Paid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Tuition_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Course Fees (Annual)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>University_in_Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Visa_Application_Handled_by__c</fullName>
+        <externalId>false</externalId>
+        <label>Visa Application Handled by</label>
+        <length>225</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Visa_Applied_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Visa Applied Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Visa_Cleared__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Visa Cleared</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Application</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Student__c</columns>
+        <columns>Preferred_University__c</columns>
+        <columns>Status__c</columns>
+        <columns>Course_Name__c</columns>
+        <columns>Accepted_date__c</columns>
+        <columns>Full_Course_fees_Annual__c</columns>
+        <columns>Intake_Year__c</columns>
+        <columns>Intake_Month__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OWNER.LAST_NAME</field>
+            <operation>equals</operation>
+            <value>admissions</value>
+        </filters>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Australia_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Australia Colombo</label>
+        <queue>Australia_Colombo</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Australia_Kandy_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Australia Kandy</label>
+        <queue>Australia_Kandy</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Ayanthi_s_Prospective_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Ayanthi&apos;s Prospective</label>
+        <queue>Ayanthi_s_Prospective</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Canada_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Canada Colombo</label>
+        <queue>Canada_Colombo</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Canada_Kandy_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Canada Kandy</label>
+        <queue>Canada_Kandy</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>England_Application</fullName>
+        <columns>NAME</columns>
+        <columns>Intake_Year__c</columns>
+        <columns>Intake_Month__c</columns>
+        <columns>Offer_Conditions__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>Preferred_University__c</columns>
+        <columns>Program_Start_date__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>OWNER.FIRST_NAME</field>
+            <operation>equals</operation>
+            <value>Devin</value>
+        </filters>
+        <label>Applications Devin</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Fariha_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Fariha</label>
+        <queue>Fariha</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>General_Queue_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>General Queue</label>
+        <queue>General_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Germany_Colombo_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Germany Colombo</label>
+        <queue>Germany_Colombo</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Germany_Kandy_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Germany Kandy</label>
+        <queue>Germany_Kandy</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Grenada_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Grenada</label>
+        <queue>Grenada</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Malaysia_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Malaysia</label>
+        <queue>Malaysia</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Applications</fullName>
+        <columns>NAME</columns>
+        <columns>Student__c</columns>
+        <columns>Course_Name__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Preferred_University__c</columns>
+        <columns>Program_Start_date__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Applications</label>
+    </listViews>
+    <listViews>
+        <fullName>NZ_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>NZ</label>
+        <queue>NZ</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Not_Converted_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Not Converted</label>
+        <queue>Not_Converted</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Shearing_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Shared</label>
+        <queue>Shared</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Singapore_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Singapore</label>
+        <queue>Singapore</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>UK_Kandy_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>UK Kandy</label>
+        <queue>UK_Kandy</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>USA_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>USA</label>
+        <queue>USA</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Undecided_Application</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Undecided</label>
+        <queue>Undecided</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Visa_processing_list</fullName>
+        <columns>Student__c</columns>
+        <columns>University_in_Country__c</columns>
+        <columns>Preferred_University__c</columns>
+        <columns>Intake_Year__c</columns>
+        <columns>Intake_Month__c</columns>
+        <columns>Orientation_date__c</columns>
+        <columns>Program_Start_date__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Visa_Applied_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>COE/CAS Received</value>
+        </filters>
+        <label>Visa processing list</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CDUK/APP{000000}</displayFormat>
+        <label>Application Number</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Applications</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Student__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Course_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Full_Course_fees_Annual__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Preferred_University__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Program_Start_date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Program_end_date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>COE_request_should_be_sent_after_complet</fullName>
+        <active>true</active>
+        <description>COE request should be sent after completing the offer conditions.
+Validation: If (Offer Type == conditional  &amp;&amp; IsConditionMet = true || Offer Type == Unconditional) then allow update to Status = Payment Made
+Consider: DoPaymentAfterVisa field == true</description>
+        <errorConditionFormula>AND (
+     ISPICKVAL(Status__c,&quot;Payment Made&quot;),
+     Preferred_University__r.DoPaymentAfterVisa__c == True,
+        NOT(
+           OR(
+	      AND(
+                  ISPICKVAL(Offer_Type__c,&quot;Conditional&quot;)
+                  ,Is_Conditions_Met__c = True
+              ),
+	      AND(
+                 ISPICKVAL(Offer_Type__c,&quot;Unconditional&quot;)
+                ,Is_Conditions_Met__c = False
+	      )
+	   )    
+       )
+)</errorConditionFormula>
+        <errorMessage>Status Can&apos;t be Updated to &apos;Payment Made&apos; until the Conditions are Met.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Offer_condition</fullName>
+        <active>true</active>
+        <description>Based on Offer Type Offer Conditions should be displayed</description>
+        <errorConditionFormula>AND(
+    ISPICKVAL( Offer_Type__c ,&apos;Conditional&apos;),
+    ISBLANK( Offer_Conditions__c )
+)</errorConditionFormula>
+        <errorDisplayField>Offer_Conditions__c</errorDisplayField>
+        <errorMessage>Offer Conditions are not Visible</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Program_End_Date_GreatProgram_Start_Date</fullName>
+        <active>true</active>
+        <description>Program End Date Should be Greater than Program Start Date</description>
+        <errorConditionFormula>Program_Start_date__c &gt;  Program_end_date__c</errorConditionFormula>
+        <errorDisplayField>Program_end_date__c</errorDisplayField>
+        <errorMessage>Program End Date Should be Greater than Program Start Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Required_fields_for_Offer_Recieved</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+OR( 
+ISPICKVAL( Status__c ,&quot;Offer Received&quot;), 
+ISPICKVAL( Status__c ,&quot;Payment Made&quot;), 
+ISPICKVAL( Status__c ,&quot;COE/CAS Received&quot;), 
+ISPICKVAL( Status__c ,&quot;COE/CAS Rejected&quot;), 
+ISPICKVAL( Status__c ,&quot;Visa Applied&quot;), 
+ISPICKVAL( Status__c ,&quot;Visa Granted&quot;), 
+ISPICKVAL( Status__c ,&quot;Visa Rejected&quot;), 
+ISPICKVAL( Status__c ,&quot;Visa Withdraw&quot;) 
+), 
+OR( 
+ISBLANK( Student_ID__c ), 
+ISBLANK( Program_Start_date__c ), 
+ISBLANK( Program_end_date__c ), 
+ISBLANK( Full_Course_fees_Annual__c ), 
+ISBLANK( Course_Name__c), 
+ISBLANK(TEXT( Offer_Type__c )) 
+) 
+)</errorConditionFormula>
+        <errorMessage>Please check the Required Fields Filled or not [ Student Id,Program Start Date,Program End Date,Full Course Fees,Course Name,Offer Type ]</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Previous_Offer_on_Offer_Number</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (IsPickVal( Next_offer__c  , &quot;Offer 01&quot;) ,  Previous_Offer__c !=null)</errorConditionFormula>
+        <errorDisplayField>Previous_Offer__c</errorDisplayField>
+        <errorMessage>Offer 1 cannot have a previous Offer</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Previous_Offer_on_Package_offer</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (IsPickVal(Package_Offer__c , &quot;No&quot;) ,  Previous_Offer__c !=null)</errorConditionFormula>
+        <errorDisplayField>Previous_Offer__c</errorDisplayField>
+        <errorMessage>Non-Package offer cannot have a previous Offer</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>visa_granted_Applied_AcceptedDate_Manda</fullName>
+        <active>true</active>
+        <description>Accepted Date is Mandatory</description>
+        <errorConditionFormula>AND( 
+CASE(
+        Status__c ,
+        &quot;Visa Granted&quot;, 1,
+        &quot;Visa Applied&quot;, 1,
+        0
+    ) = 1,
+OR(
+ISBLANK( Accepted_date__c)
+))</errorConditionFormula>
+        <errorDisplayField>Accepted_date__c</errorDisplayField>
+        <errorMessage>Required Field is Missing</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>visa_granted_Applied_InitialFeeMandatory</fullName>
+        <active>false</active>
+        <description>Initial Pre-Paid Tution Fee is Mandatory</description>
+        <errorConditionFormula>AND( 
+CASE(
+        Status__c ,
+        &quot;Visa Granted&quot;, 1,
+        &quot;Visa Applied&quot;, 1,
+        0
+    ) = 1,
+OR( 
+ISBLANK( Initial_Pre_Paid_Tuition_Fee__c )
+))</errorConditionFormula>
+        <errorDisplayField>Initial_Pre_Paid_Tuition_Fee__c</errorDisplayField>
+        <errorMessage>Required Field is Missing</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>visa_granted_Applied_OrientationMadatory</fullName>
+        <active>false</active>
+        <description>Orientation Date is Mandatory</description>
+        <errorConditionFormula>AND( 
+CASE(
+        Status__c ,
+        &quot;Visa Granted&quot;, 1,
+        &quot;Visa Applied&quot;, 1,
+        0
+    ) = 1,
+OR( 
+ISNULL( Orientation_date__c )
+))</errorConditionFormula>
+        <errorDisplayField>Orientation_date__c</errorDisplayField>
+        <errorMessage>Required Field is Missing</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>visa_granted_Applied_OtherFee_Mandatory</fullName>
+        <active>false</active>
+        <description>Other Pre-Paid Non Tuition Fee is Mandatory</description>
+        <errorConditionFormula>AND( 
+CASE(
+        Status__c ,
+        &quot;Visa Granted&quot;, 1,
+        &quot;Visa Applied&quot;, 1,
+        0
+    ) = 1,
+OR(
+ISBLANK( Other_Pre_Paid_Non_Tuition_Fee__c )
+))</errorConditionFormula>
+        <errorDisplayField>Other_Pre_Paid_Non_Tuition_Fee__c</errorDisplayField>
+        <errorMessage>Required Field is Missing</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>visa_granted_Applied_totalAmount_Mandato</fullName>
+        <active>true</active>
+        <description>Total Amount Paid Should not be Empty</description>
+        <errorConditionFormula>AND( 
+CASE(
+        Status__c ,
+        &quot;Visa Granted&quot;, 1,
+        &quot;Visa Applied&quot;, 1,
+        0
+    ) = 1,
+OR( 
+ISBLANK( Total_Amount_paid__c)
+))</errorConditionFormula>
+        <errorDisplayField>Total_Amount_paid__c</errorDisplayField>
+        <errorMessage>Required Field is Missing</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>visa_granted_Applied_totalTuition</fullName>
+        <active>true</active>
+        <description>Total Tuition Fee is Mandatory</description>
+        <errorConditionFormula>AND( 
+CASE(
+        Status__c ,
+        &quot;Visa Granted&quot;, 1,
+        &quot;Visa Applied&quot;, 1,
+        0
+    ) = 1,
+OR( 
+ISBLANK( Total_Tuition_Fee__c )))</errorConditionFormula>
+        <errorDisplayField>Total_Tuition_Fee__c</errorDisplayField>
+        <errorMessage>Required Field is Missing</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>
